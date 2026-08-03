@@ -70,6 +70,11 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") searchOverlay.classList.remove("is-open");
       });
+      document.addEventListener("click", function (e) {
+        if (searchOverlay.classList.contains("is-open") && !searchOverlay.contains(e.target) && !searchToggle.contains(e.target)) {
+          searchOverlay.classList.remove("is-open");
+        }
+      });
     }
 
     /* ---------- shop / gallery filters ---------- */

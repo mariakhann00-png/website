@@ -157,6 +157,8 @@ section { padding-block: clamp(56px, 9vw, 128px); }
 body:not(.page-home) .site-header { background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); --nav-fg: var(--black); --nav-fg-muted: var(--muted); }
 
 .nav-wrap {
+  position: relative;
+  z-index: 210;
   max-width: var(--container);
   margin-inline: auto;
   padding: 0 var(--gutter);
