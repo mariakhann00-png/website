@@ -11,17 +11,23 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
-<body>
-  <div class="announce-bar">Complimentary In-Home Viewing &middot; Somerset West &middot; Claremont &middot; Pretoria</div>
+<body class="page-shop">
   <header class="site-header">
     <div class="nav-wrap">
+      <a href="../index.html" class="logo">
+        <!-- TODO: replace with real logo image once supplied -->
+        <span class="logo-text">Oriental Carpet Gallery</span>
+      </a>
       <nav class="nav-links">
-        <a href="../shop.html" class="active">Shop</a>
-        <a href="../gallery.html">Gallery</a>
+        <button class="nav-search-toggle" data-search-toggle type="button">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+          Search
+        </button>
+        <a href="../info.html#branches">Our Branches</a>
+        <a href="../story.html">Behind the Threads</a>
+        <a href="../info.html#contact-form">Contact Us</a>
       </nav>
-      <a href="../index.html" class="brand">Oriental Carpet Gallery<small>Cape Town &middot; Pretoria</small></a>
       <div class="nav-actions">
-        <a href="../info.html">Visit &amp; Contact</a>
         <button class="icon-btn" data-open-cart aria-label="Open cart">
           <svg viewBox="0 0 24 24"><path d="M4 6h2l1.5 11h11L20 8H7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
           <span class="cart-count" data-cart-count style="display:none">0</span>
@@ -29,12 +35,20 @@
         <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
+    <div class="search-overlay">
+      <form action="../search.html" method="get">
+        <input type="search" name="q" placeholder="Search rugs by name, origin, colour&hellip;" autocomplete="off">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
   </header>
   <div class="mobile-nav">
     <a href="../index.html">Home</a>
     <a href="../shop.html">Shop</a>
     <a href="../gallery.html">Gallery</a>
-    <a href="../info.html">Visit &amp; Contact</a>
+    <a href="../info.html#branches">Our Branches</a>
+    <a href="../story.html">Behind the Threads</a>
+    <a href="../info.html#contact-form">Contact Us</a>
   </div>
 
   <div class="container"><p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../shop.html">Shop</a> / Tabriz Vine</p></div>

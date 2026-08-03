@@ -38,6 +38,82 @@
       });
     }
 
+    /* ---------- nav goes solid once you scroll past the hero ---------- */
+    var header = qs(".site-header");
+    if (header && document.body.classList.contains("page-home")) {
+      var toggleNavSolid = function () {
+        header.classList.toggle("nav-solid", window.scrollY > window.innerHeight * 0.7);
+      };
+      toggleNavSolid();
+      window.addEventListener("scroll", toggleNavSolid, { passive: true });
+    }
+
+    /* ---------- search overlay ---------- */
+    var searchOverlay = qs(".search-overlay");
+    var searchToggle = qs("[data-search-toggle]");
+    if (searchToggle && searchOverlay) {
+      searchToggle.addEventListener("click", function () {
+        searchOverlay.classList.toggle("is-open");
+        if (searchOverlay.classList.contains("is-open")) {
+          var input = qs("input", searchOverlay);
+          if (input) setTimeout(function () { input.focus(); }, 300);
+        }
+      });
+      var searchForm = qs("form", searchOverlay);
+      if (searchForm) {
+        searchForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var q = qs("input", searchForm).value.trim();
+          if (q) window.location.href = "search.html?q=" + encodeURIComponent(q);
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") searchOverlay.classList.remove("is-open");
+      });
+    }
+
+    /* ---------- shop / gallery filters ---------- */
+    var grid = qs("[data-product-grid]");
+    if (grid) {
+      var state = { type: "All", size: "All", colour: "All", sort: "featured" };
+      var chips = qsa("[data-filters] .chip");
+      var sizeSelect = qs("[data-filter-size]");
+      var colourSelect = qs("[data-filter-colour]");
+      var sortSelect = qs("[data-sort-select]");
+      var cards = qsa("[data-product-grid] > div");
+
+      function apply() {
+        cards.forEach(function (card) {
+          var matches =
+            (state.type === "All" || card.getAttribute("data-tag") === state.type) &&
+            (state.size === "All" || card.getAttribute("data-size") === state.size) &&
+            (state.colour === "All" || card.getAttribute("data-colour") === state.colour);
+          card.style.display = matches ? "" : "none";
+        });
+        var sorted = cards.slice().sort(function (a, b) {
+          if (state.sort === "price-asc") return (+a.getAttribute("data-price") || 0) - (+b.getAttribute("data-price") || 0);
+          if (state.sort === "price-desc") return (+b.getAttribute("data-price") || 0) - (+a.getAttribute("data-price") || 0);
+          if (state.sort === "newest") return (+b.getAttribute("data-year") || 0) - (+a.getAttribute("data-year") || 0);
+          if (state.sort === "oldest") return (+a.getAttribute("data-year") || 0) - (+b.getAttribute("data-year") || 0);
+          return (+a.getAttribute("data-order") || 0) - (+b.getAttribute("data-order") || 0);
+        });
+        sorted.forEach(function (card) { grid.appendChild(card); });
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          chips.forEach(function (c) { c.classList.remove("active"); });
+          chip.classList.add("active");
+          state.type = chip.getAttribute("data-filter");
+          apply();
+        });
+      });
+      if (sizeSelect) sizeSelect.addEventListener("change", function () { state.size = sizeSelect.value; apply(); });
+      if (colourSelect) colourSelect.addEventListener("change", function () { state.colour = colourSelect.value; apply(); });
+      if (sortSelect) sortSelect.addEventListener("change", function () { state.sort = sortSelect.value; apply(); });
+      apply();
+    }
+
     /* ---------- cart drawer open/close ---------- */
     var scrim = qs(".overlay-scrim");
     var drawer = qs(".cart-drawer");
@@ -129,6 +205,13 @@
         e.preventDefault();
         showToast("Checkout & payment are being connected next — for now this is a design preview.");
       });
+    }
+
+    /* ---------- in-page scroll targets (e.g. Our Branches, Contact Us) ---------- */
+    var hash = window.location.hash;
+    if (hash && hash.length > 1) {
+      var target = document.getElementById(hash.slice(1));
+      if (target) setTimeout(function () { target.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
     }
 
     renderCart();

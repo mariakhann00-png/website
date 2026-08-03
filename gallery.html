@@ -11,17 +11,23 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
-  <div class="announce-bar">Complimentary In-Home Viewing &middot; Somerset West &middot; Claremont &middot; Pretoria</div>
+<body class="page-gallery">
   <header class="site-header">
     <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <!-- TODO: replace with real logo image once supplied -->
+        <span class="logo-text">Oriental Carpet Gallery</span>
+      </a>
       <nav class="nav-links">
-        <a href="shop.html">Shop</a>
-        <a href="gallery.html" class="active">Gallery</a>
+        <button class="nav-search-toggle" data-search-toggle type="button">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+          Search
+        </button>
+        <a href="info.html#branches">Our Branches</a>
+        <a href="story.html">Behind the Threads</a>
+        <a href="info.html#contact-form">Contact Us</a>
       </nav>
-      <a href="index.html" class="brand">Oriental Carpet Gallery<small>Cape Town &middot; Pretoria</small></a>
       <div class="nav-actions">
-        <a href="info.html">Visit &amp; Contact</a>
         <button class="icon-btn" data-open-cart aria-label="Open cart">
           <svg viewBox="0 0 24 24"><path d="M4 6h2l1.5 11h11L20 8H7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
           <span class="cart-count" data-cart-count style="display:none">0</span>
@@ -29,12 +35,20 @@
         <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
+    <div class="search-overlay">
+      <form action="search.html" method="get">
+        <input type="search" name="q" placeholder="Search rugs by name, origin, colour&hellip;" autocomplete="off">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
   </header>
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="gallery.html">Gallery</a>
-    <a href="info.html">Visit &amp; Contact</a>
+    <a href="info.html#branches">Our Branches</a>
+    <a href="story.html">Behind the Threads</a>
+    <a href="info.html#contact-form">Contact Us</a>
   </div>
 
   <div class="container"><p class="breadcrumb"><a href="index.html">Home</a> / Gallery</p></div>
@@ -43,8 +57,28 @@
       <p class="eyebrow">Permanent Collection &middot; By Enquiry</p>
       <h1 class="mt-16">The Gallery</h1>
       <p class="lede mt-16">These carpets form our permanent collection &mdash; rare, antique, and museum-grade pieces held for connoisseurs and collectors. They are not sold online; each enquiry is handled personally by our specialists, with private viewings by appointment.</p>
-      <div class="grid grid-3 mt-48">
-        <article class="product-card" style="position:relative">
+
+      <div class="toolbar mt-48">
+        <div class="filter-group">
+          <div class="filters" data-filters>
+            <button class="chip active" data-filter="All">All</button>
+        <button class="chip" data-filter="Caucasian">Caucasian</button>
+        <button class="chip" data-filter="Persian">Persian</button>
+          </div>
+          <div class="filter-selects">
+            <select class="filter-select" data-filter-size><option value="All">Size: Any</option><option value="Runner">Runner</option><option value="Small">Small</option><option value="Medium">Medium</option><option value="Large">Large</option></select>
+            <select class="filter-select" data-filter-colour><option value="All">Colour: Any</option><option value="Ivory">Ivory</option><option value="Charcoal">Charcoal</option><option value="Rust">Rust</option><option value="Indigo">Indigo</option><option value="Camel">Camel</option><option value="Multi">Multi</option></select>
+          </div>
+        </div>
+        <select class="sort-select" data-sort-select>
+          <option value="featured">Sort: Featured</option>
+          <option value="newest">Most Recent Era</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+      </div>
+
+      <div class="grid grid-3" data-product-grid>
+        <div data-tag="Persian" data-size="Large" data-colour="Rust" data-year="1920" data-order="0"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/tabriz-hunting.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Tabriz Hunting Carpet"></div>
@@ -52,7 +86,7 @@
         </a>
         <a href="gallery/tabriz-hunting.html"><div class="card-title">Antique Tabriz Hunting Carpet</div></a>
         <div class="card-meta">Persia, Circa 1920 &middot; 350 x 450 cm</div>
-      </article><article class="product-card" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Small" data-colour="Ivory" data-year="1950" data-order="1"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/isfahan-prayer.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Isfahan Prayer Rug"></div>
@@ -60,7 +94,7 @@
         </a>
         <a href="gallery/isfahan-prayer.html"><div class="card-title">Silk Isfahan Prayer Rug</div></a>
         <div class="card-meta">Persia, Circa 1950 &middot; 150 x 220 cm</div>
-      </article><article class="product-card" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Medium" data-colour="Multi" data-year="1900" data-order="2"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/polonaise.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Polonaise Silk Carpet"></div>
@@ -68,7 +102,7 @@
         </a>
         <a href="gallery/polonaise.html"><div class="card-title">Polonaise-Style Silk Carpet</div></a>
         <div class="card-meta">Persia, Circa 1900 &middot; 250 x 350 cm</div>
-      </article><article class="product-card" style="position:relative">
+      </article></div><div data-tag="Caucasian" data-size="Small" data-colour="Rust" data-year="1880" data-order="3"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/caucasian-kazak.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Caucasian Kazak"></div>
@@ -76,7 +110,7 @@
         </a>
         <a href="gallery/caucasian-kazak.html"><div class="card-title">Caucasian Kazak</div></a>
         <div class="card-meta">Caucasus, Circa 1880 &middot; 180 x 260 cm</div>
-      </article><article class="product-card" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Large" data-colour="Indigo" data-year="1930" data-order="4"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/kerman-garden.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Kerman Garden Carpet"></div>
@@ -84,7 +118,7 @@
         </a>
         <a href="gallery/kerman-garden.html"><div class="card-title">Antique Kerman Garden Carpet</div></a>
         <div class="card-meta">Persia, Circa 1930 &middot; 300 x 400 cm</div>
-      </article><article class="product-card" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Medium" data-colour="Ivory" data-year="1960" data-order="5"><article class="product-card" style="position:relative">
         <span class="badge badge-dark">Gallery &middot; Enquire</span>
         <a href="gallery/qum-silk.html" style="position:relative;display:block">
           <div class="art art-tall art-dark" data-label="Qum Silk Medallion"></div>
@@ -92,7 +126,7 @@
         </a>
         <a href="gallery/qum-silk.html"><div class="card-title">Royal Qum Silk Medallion</div></a>
         <div class="card-meta">Persia, Circa 1960 &middot; 200 x 300 cm</div>
-      </article>
+      </article></div>
       </div>
     </div>
   </section>

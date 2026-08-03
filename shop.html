@@ -11,17 +11,23 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
-  <div class="announce-bar">Complimentary In-Home Viewing &middot; Somerset West &middot; Claremont &middot; Pretoria</div>
+<body class="page-shop">
   <header class="site-header">
     <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <!-- TODO: replace with real logo image once supplied -->
+        <span class="logo-text">Oriental Carpet Gallery</span>
+      </a>
       <nav class="nav-links">
-        <a href="shop.html" class="active">Shop</a>
-        <a href="gallery.html">Gallery</a>
+        <button class="nav-search-toggle" data-search-toggle type="button">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+          Search
+        </button>
+        <a href="info.html#branches">Our Branches</a>
+        <a href="story.html">Behind the Threads</a>
+        <a href="info.html#contact-form">Contact Us</a>
       </nav>
-      <a href="index.html" class="brand">Oriental Carpet Gallery<small>Cape Town &middot; Pretoria</small></a>
       <div class="nav-actions">
-        <a href="info.html">Visit &amp; Contact</a>
         <button class="icon-btn" data-open-cart aria-label="Open cart">
           <svg viewBox="0 0 24 24"><path d="M4 6h2l1.5 11h11L20 8H7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
           <span class="cart-count" data-cart-count style="display:none">0</span>
@@ -29,12 +35,20 @@
         <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
+    <div class="search-overlay">
+      <form action="search.html" method="get">
+        <input type="search" name="q" placeholder="Search rugs by name, origin, colour&hellip;" autocomplete="off">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
   </header>
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="gallery.html">Gallery</a>
-    <a href="info.html">Visit &amp; Contact</a>
+    <a href="info.html#branches">Our Branches</a>
+    <a href="story.html">Behind the Threads</a>
+    <a href="info.html#contact-form">Contact Us</a>
   </div>
 
   <div class="container"><p class="breadcrumb"><a href="index.html">Home</a> / Shop</p></div>
@@ -45,23 +59,29 @@
       <p class="lede mt-16">Hand-knotted rugs available for immediate purchase, professionally packed and delivered across South Africa &mdash; or collect from your nearest showroom.</p>
 
       <div class="toolbar mt-48">
-        <div class="filters" data-filters>
-          <button class="chip active" data-filter="All">All</button>
+        <div class="filter-group">
+          <div class="filters" data-filters>
+            <button class="chip active" data-filter="All">All</button>
         <button class="chip" data-filter="Kilim">Kilim</button>
         <button class="chip" data-filter="Modern">Modern</button>
         <button class="chip" data-filter="Persian">Persian</button>
         <button class="chip" data-filter="Runner">Runner</button>
+          </div>
+          <div class="filter-selects">
+            <select class="filter-select" data-filter-size><option value="All">Size: Any</option><option value="Runner">Runner</option><option value="Small">Small</option><option value="Medium">Medium</option><option value="Large">Large</option></select>
+            <select class="filter-select" data-filter-colour><option value="All">Colour: Any</option><option value="Ivory">Ivory</option><option value="Charcoal">Charcoal</option><option value="Rust">Rust</option><option value="Indigo">Indigo</option><option value="Camel">Camel</option><option value="Multi">Multi</option></select>
+          </div>
         </div>
-        <select class="sort-select">
-          <option>Sort: Featured</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
-          <option>Newest</option>
+        <select class="sort-select" data-sort-select>
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="newest">Newest</option>
         </select>
       </div>
 
       <div class="grid grid-4" data-product-grid>
-        <div data-tag="Persian"><article class="product-card" data-product="{&quot;id&quot;: &quot;tabriz-vine&quot;, &quot;title&quot;: &quot;Tabriz Vine&quot;, &quot;price&quot;: 48500, &quot;meta&quot;: &quot;Persian Tabriz &middot; 250 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Tabriz Vine&quot;}" style="position:relative">
+        <div data-tag="Persian" data-size="Medium" data-colour="Ivory" data-price="48500" data-order="0"><article class="product-card" data-product="{&quot;id&quot;: &quot;tabriz-vine&quot;, &quot;title&quot;: &quot;Tabriz Vine&quot;, &quot;price&quot;: 48500, &quot;meta&quot;: &quot;Persian Tabriz &middot; 250 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Tabriz Vine&quot;}" style="position:relative">
         <span class="badge">New Arrival</span>
         <a href="shop/tabriz-vine.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Tabriz Vine"></div>
@@ -70,7 +90,7 @@
         <a href="shop/tabriz-vine.html"><div class="card-title">Tabriz Vine</div></a>
         <div class="card-meta">Persian Tabriz &middot; 250 x 300 cm</div>
         <div class="card-price">R 48,500</div>
-      </article></div><div data-tag="Persian"><article class="product-card" data-product="{&quot;id&quot;: &quot;heriz-serapi&quot;, &quot;title&quot;: &quot;Heriz Serapi&quot;, &quot;price&quot;: 62000, &quot;meta&quot;: &quot;Persian Heriz &middot; 300 x 400 cm&quot;, &quot;artLabel&quot;: &quot;Heriz Serapi&quot;}" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Large" data-colour="Rust" data-price="62000" data-order="1"><article class="product-card" data-product="{&quot;id&quot;: &quot;heriz-serapi&quot;, &quot;title&quot;: &quot;Heriz Serapi&quot;, &quot;price&quot;: 62000, &quot;meta&quot;: &quot;Persian Heriz &middot; 300 x 400 cm&quot;, &quot;artLabel&quot;: &quot;Heriz Serapi&quot;}" style="position:relative">
         
         <a href="shop/heriz-serapi.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Heriz Serapi"></div>
@@ -79,7 +99,7 @@
         <a href="shop/heriz-serapi.html"><div class="card-title">Heriz Serapi</div></a>
         <div class="card-meta">Persian Heriz &middot; 300 x 400 cm</div>
         <div class="card-price">R 62,000</div>
-      </article></div><div data-tag="Persian"><article class="product-card" data-product="{&quot;id&quot;: &quot;kashan-medallion&quot;, &quot;title&quot;: &quot;Kashan Medallion&quot;, &quot;price&quot;: 39900, &quot;meta&quot;: &quot;Persian Kashan &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Kashan Medallion&quot;}" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Medium" data-colour="Indigo" data-price="39900" data-order="2"><article class="product-card" data-product="{&quot;id&quot;: &quot;kashan-medallion&quot;, &quot;title&quot;: &quot;Kashan Medallion&quot;, &quot;price&quot;: 39900, &quot;meta&quot;: &quot;Persian Kashan &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Kashan Medallion&quot;}" style="position:relative">
         
         <a href="shop/kashan-medallion.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Kashan Medallion"></div>
@@ -88,7 +108,7 @@
         <a href="shop/kashan-medallion.html"><div class="card-title">Kashan Medallion</div></a>
         <div class="card-meta">Persian Kashan &middot; 200 x 300 cm</div>
         <div class="card-price">R 39,900</div>
-      </article></div><div data-tag="Kilim"><article class="product-card" data-product="{&quot;id&quot;: &quot;anatolian-kilim&quot;, &quot;title&quot;: &quot;Anatolian Kilim&quot;, &quot;price&quot;: 18500, &quot;meta&quot;: &quot;Turkish Kilim &middot; 170 x 240 cm&quot;, &quot;artLabel&quot;: &quot;Anatolian Kilim&quot;}" style="position:relative">
+      </article></div><div data-tag="Kilim" data-size="Small" data-colour="Multi" data-price="18500" data-order="3"><article class="product-card" data-product="{&quot;id&quot;: &quot;anatolian-kilim&quot;, &quot;title&quot;: &quot;Anatolian Kilim&quot;, &quot;price&quot;: 18500, &quot;meta&quot;: &quot;Turkish Kilim &middot; 170 x 240 cm&quot;, &quot;artLabel&quot;: &quot;Anatolian Kilim&quot;}" style="position:relative">
         
         <a href="shop/anatolian-kilim.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Anatolian Kilim"></div>
@@ -97,7 +117,7 @@
         <a href="shop/anatolian-kilim.html"><div class="card-title">Anatolian Kilim</div></a>
         <div class="card-meta">Turkish Kilim &middot; 170 x 240 cm</div>
         <div class="card-price">R 18,500</div>
-      </article></div><div data-tag="Persian"><article class="product-card" data-product="{&quot;id&quot;: &quot;nain-habibian&quot;, &quot;title&quot;: &quot;Nain Habibian&quot;, &quot;price&quot;: 74000, &quot;meta&quot;: &quot;Persian Nain &middot; 250 x 350 cm&quot;, &quot;artLabel&quot;: &quot;Nain Habibian&quot;}" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Medium" data-colour="Ivory" data-price="74000" data-order="4"><article class="product-card" data-product="{&quot;id&quot;: &quot;nain-habibian&quot;, &quot;title&quot;: &quot;Nain Habibian&quot;, &quot;price&quot;: 74000, &quot;meta&quot;: &quot;Persian Nain &middot; 250 x 350 cm&quot;, &quot;artLabel&quot;: &quot;Nain Habibian&quot;}" style="position:relative">
         <span class="badge">New Arrival</span>
         <a href="shop/nain-habibian.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Nain Habibian"></div>
@@ -106,7 +126,7 @@
         <a href="shop/nain-habibian.html"><div class="card-title">Nain Habibian</div></a>
         <div class="card-meta">Persian Nain &middot; 250 x 350 cm</div>
         <div class="card-price">R 74,000</div>
-      </article></div><div data-tag="Persian"><article class="product-card" data-product="{&quot;id&quot;: &quot;bidjar-herati&quot;, &quot;title&quot;: &quot;Bidjar Herati&quot;, &quot;price&quot;: 44000, &quot;meta&quot;: &quot;Persian Bidjar &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Bidjar Herati&quot;}" style="position:relative">
+      </article></div><div data-tag="Persian" data-size="Medium" data-colour="Rust" data-price="44000" data-order="5"><article class="product-card" data-product="{&quot;id&quot;: &quot;bidjar-herati&quot;, &quot;title&quot;: &quot;Bidjar Herati&quot;, &quot;price&quot;: 44000, &quot;meta&quot;: &quot;Persian Bidjar &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Bidjar Herati&quot;}" style="position:relative">
         
         <a href="shop/bidjar-herati.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Bidjar Herati"></div>
@@ -115,7 +135,7 @@
         <a href="shop/bidjar-herati.html"><div class="card-title">Bidjar Herati</div></a>
         <div class="card-meta">Persian Bidjar &middot; 200 x 300 cm</div>
         <div class="card-price">R 44,000</div>
-      </article></div><div data-tag="Runner"><article class="product-card" data-product="{&quot;id&quot;: &quot;qashqai-runner&quot;, &quot;title&quot;: &quot;Qashqai Runner&quot;, &quot;price&quot;: 21500, &quot;meta&quot;: &quot;Persian Qashqai &middot; 80 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Qashqai Runner&quot;}" style="position:relative">
+      </article></div><div data-tag="Runner" data-size="Runner" data-colour="Charcoal" data-price="21500" data-order="6"><article class="product-card" data-product="{&quot;id&quot;: &quot;qashqai-runner&quot;, &quot;title&quot;: &quot;Qashqai Runner&quot;, &quot;price&quot;: 21500, &quot;meta&quot;: &quot;Persian Qashqai &middot; 80 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Qashqai Runner&quot;}" style="position:relative">
         
         <a href="shop/qashqai-runner.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Qashqai Runner"></div>
@@ -124,7 +144,7 @@
         <a href="shop/qashqai-runner.html"><div class="card-title">Qashqai Runner</div></a>
         <div class="card-meta">Persian Qashqai &middot; 80 x 300 cm</div>
         <div class="card-price">R 21,500</div>
-      </article></div><div data-tag="Modern"><article class="product-card" data-product="{&quot;id&quot;: &quot;beni-ourain&quot;, &quot;title&quot;: &quot;Beni Ourain&quot;, &quot;price&quot;: 32000, &quot;meta&quot;: &quot;Moroccan &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Beni Ourain&quot;}" style="position:relative">
+      </article></div><div data-tag="Modern" data-size="Medium" data-colour="Camel" data-price="32000" data-order="7"><article class="product-card" data-product="{&quot;id&quot;: &quot;beni-ourain&quot;, &quot;title&quot;: &quot;Beni Ourain&quot;, &quot;price&quot;: 32000, &quot;meta&quot;: &quot;Moroccan &middot; 200 x 300 cm&quot;, &quot;artLabel&quot;: &quot;Beni Ourain&quot;}" style="position:relative">
         
         <a href="shop/beni-ourain.html" style="position:relative;display:block">
           <div class="art art-tall" data-label="Beni Ourain"></div>
@@ -141,18 +161,6 @@
       </div>
     </div>
   </section>
-  <script>
-    document.querySelectorAll('[data-filters] .chip').forEach(function(chip){
-      chip.addEventListener('click', function(){
-        document.querySelectorAll('[data-filters] .chip').forEach(c=>c.classList.remove('active'));
-        chip.classList.add('active');
-        var tag = chip.getAttribute('data-filter');
-        document.querySelectorAll('[data-product-grid] > div').forEach(function(card){
-          card.style.display = (tag === 'All' || card.getAttribute('data-tag') === tag) ? '' : 'none';
-        });
-      });
-    });
-  </script>
 
   <footer class="site-footer">
     <div class="container footer-top">
