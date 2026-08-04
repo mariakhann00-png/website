@@ -638,7 +638,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .cover-cta { margin-top: 14px; font-size: 0.64rem; gap: 6px; }
 
   .mobile-nav {
-    position: fixed; inset: 0; z-index: 195;
+    position: fixed; inset: 0; z-index: 220;
     background: var(--white);
     transform: translateY(-100%);
     transition: transform .4s var(--ease);
@@ -650,6 +650,13 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .mobile-nav:not(.is-open) { visibility: hidden; }
   .mobile-nav.is-open { visibility: visible; }
   .mobile-nav.is-open { transform: translateY(0); }
+  .mobile-nav-close {
+    position: fixed; top: 22px; right: var(--gutter); z-index: 250;
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--black); border: none; border-radius: 50%;
+  }
+  .mobile-nav-close svg { width: 17px; height: 17px; stroke: #fff; fill: none; stroke-width: 1.6; }
   .mobile-nav a { font-family: var(--font-display); font-size: 1.8rem; }
   .mobile-nav .mobile-nav-sub { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted); margin-top: 6px; }
   .mobile-nav-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

@@ -29,6 +29,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     var toggle = qs(".nav-toggle");
     var mobileNav = qs(".mobile-nav");
+    var mobileNavClose = qs(".mobile-nav-close");
     if (toggle && mobileNav) {
       toggle.addEventListener("click", function () {
         mobileNav.classList.toggle("is-open");
@@ -36,6 +37,9 @@
       qsa("a", mobileNav).forEach(function (a) {
         a.addEventListener("click", function () { mobileNav.classList.remove("is-open"); });
       });
+    }
+    if (mobileNavClose && mobileNav) {
+      mobileNavClose.addEventListener("click", function () { mobileNav.classList.remove("is-open"); });
     }
     var caret = qs(".mobile-nav-caret");
     var subitems = qs(".mobile-nav-subitems");
