@@ -37,6 +37,15 @@
         a.addEventListener("click", function () { mobileNav.classList.remove("is-open"); });
       });
     }
+    var caret = qs(".mobile-nav-caret");
+    var subitems = qs(".mobile-nav-subitems");
+    if (caret && subitems) {
+      caret.addEventListener("click", function () {
+        var open = subitems.classList.toggle("is-open");
+        caret.classList.toggle("is-open", open);
+        caret.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
 
     /* ---------- nav goes solid once you scroll past the hero ---------- */
     var header = qs(".site-header");

@@ -652,6 +652,12 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .mobile-nav.is-open { transform: translateY(0); }
   .mobile-nav a { font-family: var(--font-display); font-size: 1.8rem; }
   .mobile-nav .mobile-nav-sub { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted); margin-top: 6px; }
-  .mobile-nav-subitems { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; padding-left: 6px; }
+  .mobile-nav-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .mobile-nav-item a { flex: 1; }
+  .mobile-nav-caret { background: none; border: none; padding: 8px; margin: -8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .3s var(--ease); }
+  .mobile-nav-caret svg { width: 18px; height: 18px; stroke: var(--black); fill: none; stroke-width: 1.6; }
+  .mobile-nav-caret.is-open { transform: rotate(180deg); }
+  .mobile-nav-subitems { display: flex; flex-direction: column; gap: 14px; padding-left: 6px; max-height: 0; overflow: hidden; margin-top: 0; transition: max-height .35s var(--ease), margin-top .35s var(--ease); }
+  .mobile-nav-subitems.is-open { max-height: 260px; margin-top: 16px; }
   .mobile-nav-subitems a { font-family: var(--font-sans) !important; font-size: 0.82rem !important; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted) !important; }
 }
