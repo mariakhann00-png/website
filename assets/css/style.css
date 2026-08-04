@@ -207,11 +207,11 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 .nav-dropdown-panel {
   position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%) translateY(-6px);
-  background: rgba(255,255,255,.72);
+  background: rgba(43,41,38,.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,.4);
-  box-shadow: 0 18px 40px rgba(20,19,17,.14);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 40px rgba(20,19,17,.28);
   min-width: 240px;
   padding: 10px 0;
   margin-top: 0;
@@ -226,10 +226,10 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 .nav-dropdown-panel a {
   display: block; padding: 12px 26px;
   font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--black) !important;
+  color: rgba(255,255,255,.85) !important;
 }
 .nav-dropdown-panel a::after { display: none; }
-.nav-dropdown-panel a:hover { background: rgba(255,255,255,.5); }
+.nav-dropdown-panel a:hover { background: rgba(255,255,255,.1); color: var(--white) !important; }
 
 .nav-actions { display: flex; gap: 24px; align-items: center; justify-content: flex-end; }
 .icon-btn {
@@ -601,10 +601,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
 .bg-ivory { background: var(--ivory); }
 .bg-black { background: var(--black); color: var(--white); }
-.bg-black h2, .bg-black h3, .bg-black h4 { color: var(--white); }
-.bg-black .eyebrow, .bg-black .text-muted { color: rgba(255,255,255,.6); }
-.bg-black .lede { color: rgba(255,255,255,.8); }
-.bg-black .branch-card { border-color: rgba(255,255,255,.18); }
+.bg-near-black { background: var(--near-black); color: var(--white); }
+.bg-black h2, .bg-black h3, .bg-black h4, .bg-near-black h2, .bg-near-black h3, .bg-near-black h4 { color: var(--white); }
+.bg-black .eyebrow, .bg-black .text-muted, .bg-near-black .eyebrow, .bg-near-black .text-muted { color: rgba(255,255,255,.6); }
+.bg-black .lede, .bg-near-black .lede { color: rgba(255,255,255,.8); }
+.bg-black .branch-card, .bg-near-black .branch-card { border-color: rgba(255,255,255,.18); }
 .scroll-target { scroll-margin-top: calc(var(--nav-h) + 24px); }
 
 /* ---------- Responsive ---------- */
