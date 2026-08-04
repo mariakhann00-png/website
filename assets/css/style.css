@@ -214,7 +214,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
   box-shadow: 0 18px 40px rgba(20,19,17,.14);
   min-width: 240px;
   padding: 10px 0;
-  margin-top: 18px;
+  margin-top: 0;
   opacity: 0; pointer-events: none;
   transition: opacity .25s var(--ease), transform .25s var(--ease);
   z-index: 5;
@@ -602,6 +602,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .bg-ivory { background: var(--ivory); }
 .bg-black { background: var(--black); color: var(--white); }
 .bg-black h2, .bg-black h3, .bg-black h4 { color: var(--white); }
+.bg-black .eyebrow, .bg-black .text-muted { color: rgba(255,255,255,.6); }
+.bg-black .lede { color: rgba(255,255,255,.8); }
+.bg-black .branch-card { border-color: rgba(255,255,255,.18); }
 .scroll-target { scroll-margin-top: calc(var(--nav-h) + 24px); }
 
 /* ---------- Responsive ---------- */
