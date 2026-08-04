@@ -629,15 +629,13 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
   .search-overlay { padding-top: 106px; }
 
-  .cover-hero { flex-direction: column; height: auto; min-height: 0; }
-  .cover-hero::after { display: none; }
-  .cover-panel, .cover-hero:has(.cover-shop:hover) .cover-shop, .cover-hero:has(.cover-shop:hover) .cover-gallery,
-  .cover-hero:has(.cover-gallery:hover) .cover-gallery, .cover-hero:has(.cover-gallery:hover) .cover-shop {
-    flex-basis: auto;
-  }
-  .cover-panel { height: 62vh; min-height: 460px; }
+  .cover-hero { height: 100vh; min-height: 560px; }
   .cover-panel:hover .cover-img { transform: scale(1.03); }
   .cover-panel:hover .cover-heading { transform: none; }
+  .cover-content { padding: clamp(14px, 4vw, 28px); }
+  .cover-eyebrow { font-size: 0.62rem; }
+  .cover-heading { font-size: clamp(1.05rem, 5.6vw, 1.55rem); max-width: 10ch; margin-top: 8px; }
+  .cover-cta { margin-top: 14px; font-size: 0.64rem; gap: 6px; }
 
   .mobile-nav {
     position: fixed; inset: 0; z-index: 195;
