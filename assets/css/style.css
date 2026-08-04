@@ -148,11 +148,11 @@ section { padding-block: clamp(56px, 9vw, 128px); }
   --nav-fg-muted: rgba(255,255,255,.78);
 }
 .site-header.nav-solid {
-  background: rgba(255,255,255,0.92);
+  background: rgba(43,41,38,0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-  --nav-fg: var(--black);
-  --nav-fg-muted: var(--muted);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  --nav-fg: #fff;
+  --nav-fg-muted: rgba(255,255,255,.7);
 }
 body:not(.page-home) .site-header { background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); --nav-fg: var(--black); --nav-fg-muted: var(--muted); }
 
@@ -173,8 +173,6 @@ body:not(.page-home) .site-header { background: rgba(255,255,255,0.92); backdrop
 }
 .logo-img { height: 52px; width: auto; display: block; }
 .logo-img-dark { display: none; }
-.site-header.nav-solid .logo-img-light { display: none; }
-.site-header.nav-solid .logo-img-dark { display: block; }
 body:not(.page-home) .site-header .logo-img-light { display: none; }
 body:not(.page-home) .site-header .logo-img-dark { display: block; }
 
