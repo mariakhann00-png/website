@@ -171,24 +171,25 @@ body:not(.page-home) .site-header { background: rgba(255,255,255,0.92); backdrop
   display: flex; align-items: center;
   white-space: nowrap;
 }
-.logo-img { height: 38px; width: auto; display: block; }
+.logo-img { height: 52px; width: auto; display: block; }
 .logo-img-dark { display: none; }
 .site-header.nav-solid .logo-img-light { display: none; }
 .site-header.nav-solid .logo-img-dark { display: block; }
 body:not(.page-home) .site-header .logo-img-light { display: none; }
 body:not(.page-home) .site-header .logo-img-dark { display: block; }
 
-.nav-links { display: flex; gap: 38px; align-items: center; }
+.nav-links { display: flex; gap: 27px; align-items: center; }
 .nav-links a, .nav-links button {
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 4px;
   color: var(--nav-fg);
   background: none; border: none; padding-left: 0; padding-right: 0;
   transition: color .5s var(--ease);
+  white-space: nowrap;
 }
 .nav-links a::after {
   content: "";
@@ -200,6 +201,33 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 }
 .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
 .nav-search-toggle svg { width: 17px; height: 17px; stroke: var(--nav-fg); fill: none; stroke-width: 1.4; transition: stroke .5s var(--ease); }
+
+/* ---------- Collection mega-menu ---------- */
+.nav-item-dropdown { position: relative; }
+.nav-dropdown-panel {
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(20,19,17,.14);
+  min-width: 240px;
+  padding: 10px 0;
+  margin-top: 18px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  z-index: 5;
+}
+.nav-item-dropdown:hover .nav-dropdown-panel,
+.nav-item-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-panel a {
+  display: block; padding: 12px 26px;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--black) !important;
+}
+.nav-dropdown-panel a::after { display: none; }
+.nav-dropdown-panel a:hover { background: var(--ivory); }
 
 .nav-actions { display: flex; gap: 24px; align-items: center; justify-content: flex-end; }
 .icon-btn {
@@ -244,6 +272,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
   position: relative;
   height: 100vh;
   min-height: 560px;
+  padding: 0;
   display: flex;
   overflow: hidden;
   background: var(--black);
@@ -426,6 +455,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .photo-band {
   position: relative; overflow: hidden;
   min-height: 56vh;
+  padding: 0;
   display: flex; align-items: center; justify-content: center;
   text-align: center; color: var(--white);
 }
@@ -588,7 +618,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     flex-direction: column; gap: 5px; padding: 6px;
   }
   .nav-toggle span { width: 22px; height: 1px; background: var(--nav-fg); transition: background .5s var(--ease); }
-  .logo-img { height: 28px; }
+  .logo-img { height: 38px; }
   .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   section { padding-block: 56px; }
@@ -620,4 +650,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .mobile-nav.is-open { transform: translateY(0); }
   .mobile-nav a { font-family: var(--font-display); font-size: 1.8rem; }
   .mobile-nav .mobile-nav-sub { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .mobile-nav-subitems { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; padding-left: 6px; }
+  .mobile-nav-subitems a { font-family: var(--font-sans) !important; font-size: 0.82rem !important; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted) !important; }
 }

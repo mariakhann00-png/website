@@ -20,9 +20,18 @@
       </a>
       <nav class="nav-links">
         <a href="shop.html">Shop Online</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="info.html#branches" class="active">Our Branches</a>
+        <div class="nav-item-dropdown">
+          <a href="gallery.html">Collection</a>
+          <div class="nav-dropdown-panel">
+            <a href="gallery.html?type=Traditional">Traditional</a>
+        <a href="gallery.html?type=Transitional">Transitional</a>
+        <a href="gallery.html?type=Contemporary">Contemporary</a>
+        <a href="gallery.html?type=Kilims%20and%20Flatweaves">Kilims and Flatweaves</a>
+          </div>
+        </div>
+        <a href="services.html">Our Services</a>
         <a href="story.html">Behind the Threads</a>
+        <a href="info.html#branches" class="active">Our Branches</a>
         <a href="info.html#contact-form" class="active">Contact Us</a>
       </nav>
       <div class="nav-actions">
@@ -45,10 +54,17 @@
   </header>
   <div class="mobile-nav">
     <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="info.html#branches">Our Branches</a>
+    <a href="shop.html">Shop Online</a>
+    <a href="gallery.html">Collection</a>
+    <div class="mobile-nav-subitems">
+    <a href="gallery.html?type=Traditional">Traditional</a>
+    <a href="gallery.html?type=Transitional">Transitional</a>
+    <a href="gallery.html?type=Contemporary">Contemporary</a>
+    <a href="gallery.html?type=Kilims%20and%20Flatweaves">Kilims and Flatweaves</a>
+    </div>
+    <a href="services.html">Our Services</a>
     <a href="story.html">Behind the Threads</a>
+    <a href="info.html#branches">Our Branches</a>
     <a href="info.html#contact-form">Contact Us</a>
   </div>
 
@@ -57,9 +73,9 @@
     <div class="container">
       <p class="eyebrow">Visit Us</p>
       <h1 class="mt-16">Our Showrooms</h1>
-      <p class="lede mt-16">Three showrooms across South Africa, each staffed by rug specialists ready to help you choose, view, or arrange a private viewing of a gallery piece.</p>
-      <div class="grid grid-3 mt-48">
-        <div class="branch-card">
+      <p class="lede mt-16">Three showrooms across South Africa, each staffed by rug specialists ready to help you choose, view, or arrange a private viewing of a piece from the Collection.</p>
+      <div class="grid grid-2 mt-48" style="gap:56px">
+        <div><p class="eyebrow">Cape Town</p><div class="grid mt-20" style="gap:24px"><div class="branch-card">
         <p class="eyebrow">Somerset West</p>
         <h4 class="mt-8">Somerset Mall</h4>
         <div class="branch-meta">
@@ -79,7 +95,7 @@
           <div><span class="lbl">Hours</span>Mon &ndash; Sat: 9am &ndash; 7pm<br>Sun: 9am &ndash; 5pm</div>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Shop%20L6%2C%20Cavendish%20Square%2C%20Claremont%2C%20Cape%20Town" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-24">Get Directions</a>
-      </div><div class="branch-card">
+      </div></div></div><div><p class="eyebrow">Pretoria</p><div class="grid mt-20" style="gap:24px"><div class="branch-card">
         <p class="eyebrow">Pretoria</p>
         <h4 class="mt-8">Menlyn Park</h4>
         <div class="branch-meta">
@@ -89,23 +105,7 @@
           <div><span class="lbl">Hours</span>Mon &ndash; Sat: 9am &ndash; 7pm<br>Sun: 9am &ndash; 5pm</div>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Menlyn%20Park%20Shopping%20Centre%2C%20Pretoria" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-24">Get Directions</a>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-ivory">
-    <div class="container">
-      <div class="center" style="max-width:640px;margin-bottom:48px">
-        <p class="eyebrow">One Seamless Experience</p>
-        <h2 class="mt-16">In Store &amp; Online, Together</h2>
-        <p class="lede center mt-16">Every online enquiry, cart, and order is visible to our showroom teams &mdash; so you can start browsing on your phone and finish the conversation over coffee in-store.</p>
-      </div>
-      <div class="grid grid-4">
-        <div class="center"><p class="eyebrow">01</p><h4 class="mt-12">In-Home Viewing</h4><p class="text-muted mt-8">We bring a shortlist of rugs to your space before you decide.</p></div>
-        <div class="center"><p class="eyebrow">02</p><h4 class="mt-12">Cleaning &amp; Restoration</h4><p class="text-muted mt-8">Specialist care for hand-knotted and antique carpets.</p></div>
-        <div class="center"><p class="eyebrow">03</p><h4 class="mt-12">Valuations</h4><p class="text-muted mt-8">Insurance and probate valuations by appointment.</p></div>
-        <div class="center"><p class="eyebrow">04</p><h4 class="mt-12">Trade &amp; Design</h4><p class="text-muted mt-8">Preferred rates and support for interior designers.</p></div>
+      </div></div></div>
       </div>
     </div>
   </section>
@@ -115,7 +115,7 @@
       <div>
         <p class="eyebrow">Get in Touch</p>
         <h2 class="mt-16">Send Us an Enquiry</h2>
-        <p class="lede mt-16">Whether it's a question about a rug in our shop, a piece from the Gallery, or a service enquiry, our team typically responds within one business day.</p>
+        <p class="lede mt-16">Whether it's a question about a rug in our shop, a piece from the Collection, or a service enquiry, our team typically responds within one business day.</p>
       </div>
       <form data-preview-form="Thank you &mdash; your message has been sent. Our team will be in touch shortly.">
         <div class="grid grid-2" style="gap:20px">
@@ -149,18 +149,18 @@
           <h5>Shop</h5>
           <ul>
             <li><a href="shop.html">All Rugs</a></li>
-            <li><a href="shop.html">Persian</a></li>
-            <li><a href="shop.html">Runners &amp; Kilims</a></li>
-            <li><a href="gallery.html">The Gallery</a></li>
+            <li><a href="gallery.html?type=Traditional">Traditional</a></li>
+            <li><a href="gallery.html?type=Kilims%20and%20Flatweaves">Kilims &amp; Flatweaves</a></li>
+            <li><a href="gallery.html">The Collection</a></li>
           </ul>
         </div>
         <div>
           <h5>Services</h5>
           <ul>
+            <li><a href="services.html">Our Services</a></li>
             <li><a href="info.html">In-Home Viewing</a></li>
             <li><a href="info.html">Cleaning &amp; Restoration</a></li>
-            <li><a href="info.html">Valuations</a></li>
-            <li><a href="info.html">Trade &amp; Interior Design</a></li>
+            <li><a href="story.html">Behind the Threads</a></li>
           </ul>
         </div>
         <div>
@@ -196,7 +196,7 @@
   <div class="modal">
     <div class="modal-panel">
       <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
-      <p class="eyebrow">Gallery Enquiry</p>
+      <p class="eyebrow">Collection Enquiry</p>
       <h3 class="mt-8" data-modal-piece-name>Enquire About This Piece</h3>
       <p class="text-muted mt-8" data-modal-piece-meta></p>
       <form id="enquiry-form" class="mt-32">

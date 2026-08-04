@@ -116,6 +116,16 @@
       if (sizeSelect) sizeSelect.addEventListener("change", function () { state.size = sizeSelect.value; apply(); });
       if (colourSelect) colourSelect.addEventListener("change", function () { state.colour = colourSelect.value; apply(); });
       if (sortSelect) sortSelect.addEventListener("change", function () { state.sort = sortSelect.value; apply(); });
+
+      var presetType = new URLSearchParams(window.location.search).get("type");
+      if (presetType) {
+        var presetChip = chips.filter(function (c) { return c.getAttribute("data-filter") === presetType; })[0];
+        if (presetChip) {
+          chips.forEach(function (c) { c.classList.remove("active"); });
+          presetChip.classList.add("active");
+          state.type = presetType;
+        }
+      }
       apply();
     }
 
