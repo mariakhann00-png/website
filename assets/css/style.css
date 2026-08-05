@@ -171,14 +171,14 @@ body:not(.page-home) .site-header { background: rgba(250,248,244,0.92); backdrop
   display: flex; align-items: center;
   white-space: nowrap;
 }
-.logo-img { height: 60px; width: auto; display: block; }
+.logo-img { height: 70px; width: auto; display: block; }
 .logo-img-dark { display: none; }
 .site-header.nav-solid .logo-img-light { display: none; }
 .site-header.nav-solid .logo-img-dark { display: block; }
 body:not(.page-home) .site-header .logo-img-light { display: none; }
 body:not(.page-home) .site-header .logo-img-dark { display: block; }
 
-.nav-links { display: flex; gap: 27px; align-items: center; }
+.nav-links { display: flex; gap: 41px; align-items: center; }
 .nav-links a, .nav-links button {
   font-size: 0.7rem;
   font-weight: 500;
@@ -282,7 +282,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 .cover-hero::after {
   content: "";
   position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
-  background: rgba(255,255,255,.32);
+  background: rgba(255,255,255,.22);
   transform: translateX(-50%);
   transition: left 1.3s var(--ease-slow);
   z-index: 5; pointer-events: none;
@@ -324,7 +324,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 .cover-media .art::after { top: 34%; bottom: auto; left: 50%; transform: translateX(-50%); }
 .cover-panel:hover .cover-img, .cover-panel:hover .cover-media .art { transform: scale(1.025); }
 
-.cover-content { position: relative; z-index: 2; width: 100%; padding: clamp(32px, 6vw, 96px); }
+.cover-content { position: relative; z-index: 2; width: 100%; padding: clamp(32px, 6vw, 96px); margin-bottom: 10vh; }
 .cover-eyebrow { color: rgba(255,255,255,.78); transition: color .4s var(--ease); }
 .cover-panel:hover .cover-eyebrow { color: #d9ac5f; }
 .cover-heading {
@@ -626,7 +626,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     flex-direction: column; gap: 5px; padding: 6px;
   }
   .nav-toggle span { width: 22px; height: 1px; background: var(--nav-fg); transition: background .5s var(--ease); }
-  .logo-img { height: 44px; }
+  .logo-img { height: 51px; }
   .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   section { padding-block: 56px; }
