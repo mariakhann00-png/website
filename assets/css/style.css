@@ -658,8 +658,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     from { transform: scale(1); }
     to { transform: scale(1.09); }
   }
-  .cover-shop .cover-img { animation: heroLoadZoom 3.2s var(--ease-slow) .3s forwards; }
-  .cover-gallery .cover-img { animation: heroLoadZoom 3.2s var(--ease-slow) 4.3s forwards; }
+  .cover-img { transition: none; }
+  .cover-shop .cover-img { animation: heroLoadZoom 1.8s var(--ease-slow) .2s forwards; }
+  .cover-gallery .cover-img { animation: heroLoadZoom 1.8s var(--ease-slow) 2.4s forwards; }
   .cover-content { padding: clamp(18px, 5vw, 32px); }
   .cover-eyebrow { font-size: 0.62rem; }
   .cover-heading { font-size: clamp(0.92rem, 4.9vw, 1.36rem); max-width: 20ch; margin-top: 12px; }
