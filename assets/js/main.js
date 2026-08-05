@@ -55,10 +55,7 @@
     if ("IntersectionObserver" in window) {
       var revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
         });
       }, { threshold: 0.25 });
       qsa("[data-reveal-grid]").forEach(function (el) { revealObserver.observe(el); });
