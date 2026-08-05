@@ -325,8 +325,8 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 .cover-panel:hover .cover-img, .cover-panel:hover .cover-media .art { transform: scale(1.025); }
 
 .cover-content { position: relative; z-index: 2; width: 100%; padding: clamp(32px, 6vw, 96px); margin-bottom: 10vh; }
-.cover-eyebrow { color: rgba(255,255,255,.78); transition: color .4s var(--ease); }
-.cover-panel:hover .cover-eyebrow { color: #d9ac5f; }
+.cover-eyebrow { color: rgba(255,255,255,.78); transition: color .3s var(--ease), font-weight .3s var(--ease); }
+.cover-eyebrow:hover { color: var(--white); font-weight: 700; }
 .cover-heading {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2.55rem);
