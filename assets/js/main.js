@@ -63,6 +63,14 @@
       qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
     }
 
+    /* ---------- "The [Month] Edit" always shows the current month ---------- */
+    var monthEdit = qs("[data-month-edit]");
+    if (monthEdit) {
+      var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+      monthEdit.textContent = "The " + monthNames[new Date().getMonth()] + " Edit";
+    }
+
     /* ---------- nav goes solid once you scroll past the hero ---------- */
     var header = qs(".site-header");
     if (header && document.body.classList.contains("page-home")) {
