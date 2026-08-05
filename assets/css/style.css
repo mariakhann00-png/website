@@ -414,9 +414,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .product-card { display: block; }
 .product-card .art { margin-bottom: 18px; }
 .product-photo { position: relative; display: block; width: 100%; aspect-ratio: 3/4; overflow: hidden; }
-.product-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .product-card .product-photo { margin-bottom: 18px; }
 .product-photo-lg { aspect-ratio: 3/4; }
+.product-photo-lg img { object-fit: contain; }
 .price-was { text-decoration: line-through; color: var(--muted); margin-right: 10px; }
 .price-now { color: var(--black); font-weight: 500; }
 .product-card .card-overlay {
