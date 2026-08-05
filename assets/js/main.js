@@ -51,6 +51,21 @@
       });
     }
 
+    /* ---------- scroll-reveal grids (e.g. The Difference) ---------- */
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      qsa("[data-reveal-grid]").forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
+    }
+
     /* ---------- nav goes solid once you scroll past the hero ---------- */
     var header = qs(".site-header");
     if (header && document.body.classList.contains("page-home")) {
