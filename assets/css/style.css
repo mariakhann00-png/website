@@ -326,13 +326,13 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
 
 .cover-content { position: relative; z-index: 2; width: 100%; padding: clamp(32px, 6vw, 96px); }
 .cover-eyebrow { color: rgba(255,255,255,.78); transition: color .4s var(--ease); }
-.cover-panel:hover .cover-eyebrow { color: var(--stone-dark); }
+.cover-panel:hover .cover-eyebrow { color: #d9ac5f; }
 .cover-heading {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2.55rem);
   line-height: 1.15;
   color: var(--white);
-  max-width: 16ch;
+  max-width: 24ch;
   margin-top: 20px;
   transform: translateY(0);
   transition: transform .8s var(--ease-slow);
@@ -644,7 +644,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .cover-gallery .cover-img { animation: heroLoadZoom 3.2s var(--ease-slow) 4.3s forwards; }
   .cover-content { padding: clamp(18px, 5vw, 32px); }
   .cover-eyebrow { font-size: 0.62rem; }
-  .cover-heading { font-size: clamp(0.92rem, 4.9vw, 1.36rem); max-width: 13ch; margin-top: 12px; }
+  .cover-heading { font-size: clamp(0.92rem, 4.9vw, 1.36rem); max-width: 20ch; margin-top: 12px; }
   .cover-sub { font-size: clamp(0.68rem, 3vw, 0.78rem); margin-top: 10px; max-width: 22ch; }
 
   .mobile-nav {
