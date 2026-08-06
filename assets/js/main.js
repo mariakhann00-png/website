@@ -63,6 +63,11 @@
       qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
     }
 
+    /* ---------- At Home: tap to reveal on touch devices ---------- */
+    qsa(".at-home-item").forEach(function (el) {
+      el.addEventListener("click", function () { el.classList.toggle("is-open"); });
+    });
+
     /* ---------- "The [Month] Edit" always shows the current month ---------- */
     var monthEdit = qs("[data-month-edit]");
     if (monthEdit) {

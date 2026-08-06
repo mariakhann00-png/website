@@ -657,6 +657,98 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .diff-grid.is-visible .diff-col:nth-child(2) { transition-delay: .3s; }
 .diff-grid.is-visible .diff-col:nth-child(3) { transition-delay: .6s; }
 
+/* ---------- Our Collection (category tiles) ---------- */
+.collection-tile { display: block; }
+.collection-tile-media { position: relative; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 20px; }
+.collection-tile-media img, .collection-tile-media .art { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
+.collection-tile:hover .collection-tile-media img, .collection-tile:hover .collection-tile-media .art { transform: scale(1.045); }
+.collection-tile-media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,18,15,0) 58%, rgba(20,18,15,.48) 100%);
+  opacity: 0;
+  transition: opacity .5s var(--ease);
+}
+.collection-tile:hover .collection-tile-media::after { opacity: 1; }
+.collection-tile-cta {
+  position: absolute; left: 50%; bottom: 22px; z-index: 2;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  transition: opacity .45s var(--ease), transform .45s var(--ease);
+  font-family: var(--font-sans); font-size: 0.64rem; font-weight: 500;
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+}
+.collection-tile:hover .collection-tile-cta { opacity: 1; transform: translate(-50%, 0); }
+.collection-tile-title { text-align: center; font-family: var(--font-display); font-size: 1.2rem; }
+@media (hover: none) {
+  .collection-tile-media::after { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 74%, rgba(20,18,15,.4) 100%); }
+  .collection-tile-cta { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ---------- At Home (editorial masonry) ---------- */
+.at-home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, minmax(160px, 22vw));
+  grid-template-areas:
+    "l1 l1 s1 s2"
+    "l1 l1 l2 l2"
+    "s3 s4 l2 l2";
+  gap: clamp(14px, 1.6vw, 24px);
+}
+.at-home-item { position: relative; overflow: hidden; display: block; cursor: pointer; }
+.at-home-item:nth-of-type(1) { grid-area: l1; }
+.at-home-item:nth-of-type(2) { grid-area: s1; }
+.at-home-item:nth-of-type(3) { grid-area: s2; }
+.at-home-item:nth-of-type(4) { grid-area: l2; }
+.at-home-item:nth-of-type(5) { grid-area: s3; }
+.at-home-item:nth-of-type(6) { grid-area: s4; }
+.at-home-item .art { width: 100%; height: 100%; transition: transform 1.6s var(--ease-slow); }
+.at-home-item:hover .art, .at-home-item.is-open .art { transform: scale(1.04); }
+.at-home-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: clamp(18px, 2.4vw, 30px);
+  background: linear-gradient(180deg, rgba(20,18,15,0) 48%, rgba(20,18,15,.6) 100%);
+  opacity: 0;
+  transition: opacity .5s var(--ease);
+}
+.at-home-item:hover .at-home-overlay, .at-home-item.is-open .at-home-overlay { opacity: 1; }
+.at-home-loc { color: rgba(255,255,255,.75); font-size: 0.62rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+.at-home-style { color: var(--white); font-family: var(--font-display); font-size: 1.15rem; margin-top: 6px; }
+.at-home-desc { color: rgba(255,255,255,.82); font-size: 0.82rem; line-height: 1.55; margin-top: 8px; max-width: 32ch; }
+@media (hover: none) {
+  .at-home-overlay { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 70%, rgba(20,18,15,.55) 100%); }
+  .at-home-style, .at-home-desc { opacity: 0; transform: translateY(6px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+  .at-home-item.is-open .at-home-style, .at-home-item.is-open .at-home-desc { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- The Art of the Persian Rug ---------- */
+.craft-media { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 24px; }
+.craft-media .art { width: 100%; height: 100%; }
+.craft-num {
+  font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.craft-text { color: rgba(255,255,255,.85); margin-top: 10px; line-height: 1.7; font-size: 0.95rem; }
+.craft-finish { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--white); letter-spacing: .01em; }
+
+/* ---------- Our Services (homepage teaser) ---------- */
+.services-list { max-width: 720px; margin-inline: auto; border-top: 1px solid var(--line); }
+.services-row {
+  display: flex; align-items: baseline; gap: 22px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left .4s var(--ease);
+}
+.services-row:hover { padding-left: 14px; }
+.services-num { font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); letter-spacing: var(--tracking-wide); min-width: 26px; flex-shrink: 0; }
+.services-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; transition: font-weight .3s var(--ease); }
+.services-row:hover .services-title { font-weight: 600; }
+
 /* ---------- Utilities ---------- */
 .center { text-align: center; margin-inline: auto; }
 .mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}.mt-64{margin-top:64px}
@@ -676,6 +768,12 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .split { grid-template-columns: 1fr; }
+  .at-home-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-template-areas: none;
+  }
+  .at-home-item { aspect-ratio: 4/5; grid-area: auto !important; }
 }
 
 @media (max-width: 760px) {
@@ -690,6 +788,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   section { padding-block: 56px; }
+  .at-home-grid { grid-template-columns: 1fr; }
+  .at-home-item { aspect-ratio: 4/3; }
+  .services-row { gap: 14px; }
+  .services-title { font-size: 1.05rem; }
 
   .search-overlay { padding-top: 106px; }
 
