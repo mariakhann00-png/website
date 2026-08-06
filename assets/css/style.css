@@ -439,6 +439,38 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .badge-dark { background: var(--black); color: var(--white); }
 
+/* ---------- Edit card (The [Month] Edit) ---------- */
+.edit-card { display: block; color: inherit; }
+.edit-card .product-photo { margin-bottom: 18px; }
+.edit-card .product-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,18,15,0) 60%, rgba(20,18,15,.5) 100%);
+  opacity: 0;
+  transition: opacity .5s var(--ease);
+}
+.edit-card .product-photo img { transition: transform 1.6s var(--ease-slow); }
+.edit-card:hover .product-photo img { transform: scale(1.045); }
+.edit-card:hover .product-photo::after { opacity: 1; }
+.edit-cta {
+  position: absolute; left: 50%; bottom: 22px; z-index: 2;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  transition: opacity .45s var(--ease), transform .45s var(--ease);
+  font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--white);
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255,255,255,.65);
+  white-space: nowrap;
+}
+.edit-card:hover .edit-cta { opacity: 1; transform: translate(-50%, 0); }
+@media (hover: none) {
+  .edit-card .product-photo img { transition: none; }
+  .edit-card .product-photo::after { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 72%, rgba(20,18,15,.5) 100%); }
+  .edit-cta { opacity: 1; transform: translate(-50%, 0); }
+}
+
 /* ---------- Cards with quick-add ---------- */
 .quick-add {
   position: relative; z-index: 3;
@@ -620,7 +652,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 /* ---------- Utilities ---------- */
 .center { text-align: center; margin-inline: auto; }
-.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}.mt-64{margin-top:64px}
 .mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
 .bg-ivory { background: var(--ivory); }
 .bg-black { background: var(--black); color: var(--white); }
