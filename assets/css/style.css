@@ -467,8 +467,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .edit-card:hover .edit-cta { opacity: 1; transform: translate(-50%, 0); }
 @media (hover: none) {
   .edit-card .product-photo img { transition: none; }
-  .edit-card .product-photo::after { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 72%, rgba(20,18,15,.5) 100%); }
-  .edit-cta { opacity: 1; transform: translate(-50%, 0); }
+  .edit-card .product-photo::after { display: none; }
+  .edit-cta {
+    opacity: 1; transform: translate(-50%, 0);
+    background: rgba(20,18,15,.72); padding: 8px 16px; border-bottom: none;
+  }
 }
 
 /* ---------- Cards with quick-add ---------- */
@@ -696,8 +699,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     to { transform: scale(1.09); }
   }
   .cover-img { transition: none; }
-  .cover-shop .cover-img { animation: heroLoadZoom 1.8s var(--ease-slow) .2s forwards; }
-  .cover-gallery .cover-img { animation: heroLoadZoom 1.8s var(--ease-slow) 2.4s forwards; }
+  .cover-shop .cover-img { animation: heroLoadZoom .5s var(--ease-slow) .1s forwards; }
+  .cover-gallery .cover-img { animation: heroLoadZoom .5s var(--ease-slow) .6s forwards; }
   .cover-content { padding: clamp(18px, 5vw, 32px); }
   .cover-eyebrow { font-size: 0.62rem; }
   .cover-heading { font-size: clamp(0.92rem, 4.9vw, 1.36rem); max-width: 20ch; margin-top: 12px; }
