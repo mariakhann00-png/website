@@ -688,28 +688,36 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .collection-tile-cta { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* ---------- At Home (editorial grid) ---------- */
+/* ---------- At Home (editorial bento) ----------
+   A repeating 5-item pattern that gaplessly tiles a 6-column grid:
+   1 large (4x2) + 2 small (2x1 each, stacked beside the large) + 2 medium (3x1 each).
+   Cycling by nth-child means the layout keeps working if items are
+   added, removed or reordered later — it just continues the pattern. */
 .at-home-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(120px, 15vw);
   gap: clamp(14px, 1.6vw, 24px);
 }
-.at-home-item { position: relative; overflow: hidden; display: block; cursor: pointer; aspect-ratio: 4/5; }
-.at-home-item .art { width: 100%; height: 100%; transition: transform 1.6s var(--ease-slow); }
-.at-home-item:hover .art, .at-home-item.is-open .art { transform: scale(1.04); }
+.at-home-item { position: relative; overflow: hidden; display: block; cursor: pointer; grid-column: span 3; grid-row: span 1; }
+.at-home-item:nth-child(5n+1) { grid-column: span 4; grid-row: span 2; }
+.at-home-item:nth-child(5n+2) { grid-column: span 2; grid-row: span 1; }
+.at-home-item:nth-child(5n+3) { grid-column: span 2; grid-row: span 1; }
+.at-home-item .art, .at-home-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
+.at-home-item:hover .art, .at-home-item:hover img, .at-home-item.is-open .art, .at-home-item.is-open img { transform: scale(1.04); }
 .at-home-overlay {
   position: absolute; inset: 0; z-index: 2;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(18px, 2.4vw, 30px);
-  background: linear-gradient(180deg, rgba(20,18,15,0) 48%, rgba(20,18,15,.6) 100%);
+  padding: clamp(16px, 2vw, 26px);
+  background: linear-gradient(180deg, rgba(20,18,15,0) 55%, rgba(20,18,15,.5) 100%);
   opacity: 0;
   transition: opacity .5s var(--ease);
 }
 .at-home-item:hover .at-home-overlay, .at-home-item.is-open .at-home-overlay { opacity: 1; }
-.at-home-loc { color: rgba(255,255,255,.75); font-size: 0.62rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
-.at-home-desc { color: var(--white); font-family: var(--font-display); font-size: 1.05rem; margin-top: 8px; max-width: 32ch; }
+.at-home-loc { color: rgba(255,255,255,.8); font-size: 0.6rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+.at-home-desc { color: var(--white); font-family: var(--font-display); font-size: 1rem; margin-top: 6px; max-width: 30ch; }
 @media (hover: none) {
-  .at-home-overlay { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 70%, rgba(20,18,15,.55) 100%); }
+  .at-home-overlay { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 74%, rgba(20,18,15,.48) 100%); }
   .at-home-desc { opacity: 0; transform: translateY(6px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
   .at-home-item.is-open .at-home-desc { opacity: 1; transform: translateY(0); }
 }
@@ -757,7 +765,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .split { grid-template-columns: 1fr; }
-  .at-home-grid { grid-template-columns: repeat(2, 1fr); }
+  .at-home-grid { grid-template-columns: repeat(4, 1fr); }
+  .at-home-item { grid-column: span 2; }
+  .at-home-item:nth-child(5n+1) { grid-column: span 4; grid-row: span 2; }
+  .at-home-item:nth-child(5n+2), .at-home-item:nth-child(5n+3) { grid-column: span 2; grid-row: span 1; }
 }
 
 @media (max-width: 760px) {
@@ -772,8 +783,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   section { padding-block: 56px; }
-  .at-home-grid { grid-template-columns: 1fr; }
-  .at-home-item { aspect-ratio: 4/3; }
+  .at-home-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .at-home-item, .at-home-item:nth-child(5n+1), .at-home-item:nth-child(5n+2), .at-home-item:nth-child(5n+3) { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
+  .at-home-item:nth-child(5n+1) { aspect-ratio: 4/5; }
   .services-row { gap: 14px; }
   .services-title { font-size: 1.05rem; }
 
