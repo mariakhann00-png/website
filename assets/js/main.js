@@ -63,10 +63,39 @@
       qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
     }
 
-    /* ---------- At Home: tap to reveal on touch devices ---------- */
-    qsa(".at-home-item").forEach(function (el) {
-      el.addEventListener("click", function () { el.classList.toggle("is-open"); });
-    });
+    /* ---------- At Home: click/tap opens a full lightbox ---------- */
+    var lightbox = qs("[data-at-home-lightbox]");
+    if (lightbox) {
+      var lbImg = qs(".lightbox-media img", lightbox);
+      var lbLoc = qs(".lightbox-loc", lightbox);
+      var lbDesc = qs(".lightbox-desc", lightbox);
+      var openLightbox = function (item) {
+        var img = qs("img", item);
+        var loc = qs(".at-home-loc", item);
+        var desc = qs(".at-home-desc", item);
+        if (img) { lbImg.src = img.src; lbImg.alt = img.alt; }
+        lbLoc.textContent = loc ? loc.textContent : "";
+        lbDesc.textContent = desc ? desc.textContent : "";
+        lightbox.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      };
+      var closeLightbox = function () {
+        lightbox.classList.remove("is-open");
+        document.body.style.overflow = "";
+      };
+      qsa(".at-home-item").forEach(function (el) {
+        el.addEventListener("click", function () { openLightbox(el); });
+      });
+      qsa("[data-lightbox-close]", lightbox).forEach(function (btn) {
+        btn.addEventListener("click", closeLightbox);
+      });
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLightbox();
+      });
+    }
 
     /* ---------- "The [Month] Edit" always shows the current month ---------- */
     var monthEdit = qs("[data-month-edit]");
