@@ -69,6 +69,14 @@
       var lbImg = qs(".lightbox-media img", lightbox);
       var lbLoc = qs(".lightbox-loc", lightbox);
       var lbDesc = qs(".lightbox-desc", lightbox);
+      var lbCaption = qs(".lightbox-caption", lightbox);
+      var alignCaptionToImage = function () {
+        var mediaRect = lbImg.parentElement.getBoundingClientRect();
+        var imgRect = lbImg.getBoundingClientRect();
+        if (!imgRect.width) return;
+        lbCaption.style.marginLeft = (imgRect.left - mediaRect.left) + "px";
+        lbCaption.style.width = imgRect.width + "px";
+      };
       var openLightbox = function (item) {
         var img = qs("img", item);
         var loc = qs(".at-home-loc", item);
@@ -78,11 +86,16 @@
         lbDesc.textContent = desc ? desc.textContent : "";
         lightbox.classList.add("is-open");
         document.body.style.overflow = "hidden";
+        if (lbImg.complete) alignCaptionToImage();
+        else lbImg.onload = alignCaptionToImage;
       };
       var closeLightbox = function () {
         lightbox.classList.remove("is-open");
         document.body.style.overflow = "";
       };
+      window.addEventListener("resize", function () {
+        if (lightbox.classList.contains("is-open")) alignCaptionToImage();
+      });
       qsa(".at-home-item").forEach(function (el) {
         el.addEventListener("click", function () { openLightbox(el); });
         el.addEventListener("mouseenter", function () { el.classList.add("is-hovering"); });
