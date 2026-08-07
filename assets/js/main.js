@@ -85,6 +85,8 @@
       };
       qsa(".at-home-item").forEach(function (el) {
         el.addEventListener("click", function () { openLightbox(el); });
+        el.addEventListener("mouseenter", function () { el.classList.add("is-hovering"); });
+        el.addEventListener("mouseleave", function () { el.classList.remove("is-hovering"); });
       });
       qsa("[data-lightbox-close]", lightbox).forEach(function (btn) {
         btn.addEventListener("click", closeLightbox);

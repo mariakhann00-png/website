@@ -690,7 +690,14 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .collection-tile-cta { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* ---------- At Home (editorial grid) ---------- */
+/* ---------- At Home (editorial grid) ----------
+   Hover reveal is driven by JS (mouseenter/mouseleave toggling
+   .is-hovering) rather than the CSS :hover pseudo-class or the
+   (hover: none/hover) media feature — both have proven unreliable
+   at correctly detecting real desktop pointer devices on some
+   machines in this project, causing the caption to appear "stuck"
+   on or never respond to hover. The persistent mobile caption below
+   is gated on viewport width instead, which has been solid throughout. */
 .at-home-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -698,7 +705,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .at-home-item { position: relative; overflow: hidden; display: block; cursor: pointer; aspect-ratio: 4/5; }
 .at-home-item .art, .at-home-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
-.at-home-item:hover .art, .at-home-item:hover img, .at-home-item.is-open .art, .at-home-item.is-open img { transform: scale(1.04); }
+.at-home-item.is-hovering .art, .at-home-item.is-hovering img { transform: scale(1.04); }
 .at-home-overlay {
   position: absolute; inset: 0; z-index: 2;
   display: flex; flex-direction: column; justify-content: flex-end;
@@ -707,7 +714,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   opacity: 0;
   transition: opacity .5s var(--ease);
 }
-.at-home-item:hover .at-home-overlay { opacity: 1; }
+.at-home-item.is-hovering .at-home-overlay { opacity: 1; }
 .at-home-loc {
   color: var(--white); font-weight: 600; font-size: 0.64rem;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
@@ -715,11 +722,15 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .at-home-desc {
   color: var(--white); font-weight: 600; font-family: var(--font-display); font-size: 1.05rem;
-  margin-top: 6px; max-width: 30ch;
+  max-width: 30ch;
   text-shadow: 0 1px 6px rgba(0,0,0,.9), 0 0 16px rgba(0,0,0,.55);
+  max-height: 0; margin-top: 0; opacity: 0; overflow: hidden;
+  transition: max-height .5s var(--ease), opacity .4s var(--ease), margin-top .5s var(--ease);
 }
-@media (hover: none) {
+.at-home-item.is-hovering .at-home-desc { max-height: 160px; margin-top: 6px; opacity: 1; }
+@media (max-width: 760px) {
   .at-home-overlay { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 60%, rgba(20,18,15,.62) 100%); }
+  .at-home-desc { max-height: 160px; margin-top: 6px; opacity: 1; }
 }
 
 /* ---------- At Home lightbox ---------- */
@@ -743,7 +754,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .lightbox-body { max-width: 880px; width: 100%; display: flex; flex-direction: column; align-items: center; }
 .lightbox-media { width: 100%; max-height: 68vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .lightbox-media img { max-width: 100%; max-height: 68vh; width: auto; height: auto; object-fit: contain; display: block; }
-.lightbox-caption { text-align: center; margin-top: 22px; }
+.lightbox-caption { text-align: left; width: 100%; margin-top: 22px; }
 .lightbox-loc { color: rgba(255,255,255,.7); font-size: 0.68rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
 .lightbox-desc { color: var(--white); font-family: var(--font-display); font-size: 1.3rem; margin-top: 8px; }
 @media (max-width: 760px) {
@@ -821,6 +832,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .diff-col p { font-size: 0.76rem; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .at-home-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .at-home-item { aspect-ratio: 1/1; }
+  .at-home-hide-mobile { display: none; }
   .at-home-loc { font-size: 0.6rem; }
   .services-row { gap: 14px; }
   .services-title { font-size: 1.05rem; }
