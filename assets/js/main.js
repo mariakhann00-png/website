@@ -112,6 +112,23 @@
       });
     }
 
+    /* ---------- Product detail photo: zoom toward the cursor on hover ---------- */
+    qsa(".product-photo-lg").forEach(function (container) {
+      var img = qs("img", container);
+      if (!img) return;
+      container.addEventListener("mousemove", function (e) {
+        var r = container.getBoundingClientRect();
+        var x = ((e.clientX - r.left) / r.width) * 100;
+        var y = ((e.clientY - r.top) / r.height) * 100;
+        img.style.transformOrigin = x + "% " + y + "%";
+      });
+      container.addEventListener("mouseenter", function () { img.classList.add("is-zoomed"); });
+      container.addEventListener("mouseleave", function () {
+        img.classList.remove("is-zoomed");
+        img.style.transformOrigin = "";
+      });
+    });
+
     /* ---------- "The [Month] Edit" always shows the current month ---------- */
     var monthEdit = qs("[data-month-edit]");
     if (monthEdit) {

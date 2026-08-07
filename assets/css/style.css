@@ -416,18 +416,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .product-photo { position: relative; display: block; width: 100%; aspect-ratio: 3/4; overflow: hidden; }
 .product-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .product-card .product-photo { margin-bottom: 18px; }
-.product-photo-lg { aspect-ratio: 3/4; }
-.product-photo-lg img { object-fit: contain; }
+.product-photo-lg { aspect-ratio: 3/4; cursor: zoom-in; }
+.product-photo-lg img { object-fit: contain; transition: transform .35s var(--ease); }
+.product-photo-lg img.is-zoomed { transform: scale(1.35); }
 .price-was { text-decoration: line-through; color: var(--muted); margin-right: 10px; }
 .price-now { color: var(--black); font-weight: 500; }
-.product-card .card-overlay {
-  position: absolute; inset: 0; z-index: 2;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(43,41,38,0.42);
-  opacity: 0; pointer-events: none;
-  transition: opacity .3s var(--ease);
-}
-.product-card:hover .card-overlay { opacity: 1; pointer-events: auto; }
 .card-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 4px; }
 .card-meta { font-size: 0.78rem; color: var(--muted); }
 .card-price { font-size: 0.85rem; margin-top: 8px; letter-spacing: 0.02em; }
@@ -473,16 +466,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     background: rgba(20,18,15,.72); padding: 8px 16px; border-bottom: none;
   }
 }
-
-/* ---------- Cards with quick-add ---------- */
-.quick-add {
-  position: relative; z-index: 3;
-  padding: 12px 24px; font-size: 0.68rem;
-  border: 1px solid var(--white); color: var(--white);
-  letter-spacing: var(--tracking-wide); text-transform: uppercase;
-  background: transparent;
-}
-.quick-add:hover { background: var(--white); color: var(--black); }
 
 /* ---------- Editorial / story blocks ---------- */
 .stat-row { display: flex; gap: clamp(28px, 5vw, 72px); flex-wrap: wrap; }
@@ -832,6 +815,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .nav-toggle span { width: 22px; height: 1px; background: var(--nav-fg); transition: background .5s var(--ease); }
   .logo-img { height: 51px; }
   .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
+  [data-product-grid] { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  [data-product-grid] .card-title { font-size: 1.05rem; }
+  [data-product-grid] .btn-sm { padding: 10px 14px; font-size: 0.62rem; }
   .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .collection-discover { margin-top: 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
