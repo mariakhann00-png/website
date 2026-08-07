@@ -412,6 +412,15 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .filter-selects { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 
 .product-card { display: block; }
+/* Grid rows stretch cards to a shared height (default align-items:stretch),
+   so when one card's title wraps to an extra line, its Quick Add/Enquire
+   button drops lower than its row-neighbour's. Making the card a flex
+   column and pinning the button to the bottom with margin-top:auto keeps
+   every button in a row level, absorbing the difference as extra space
+   above the button instead. */
+[data-product-grid] > div { display: flex; }
+[data-product-grid] .product-card { display: flex; flex-direction: column; width: 100%; }
+[data-product-grid] .product-card > .btn { margin-top: auto; }
 .product-card .art { margin-bottom: 18px; }
 .product-photo { position: relative; display: block; width: 100%; aspect-ratio: 3/4; overflow: hidden; }
 .product-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
