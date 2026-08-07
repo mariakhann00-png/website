@@ -708,19 +708,30 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .at-home-item.is-hovering .art, .at-home-item.is-hovering img { transform: scale(1.04); }
 .at-home-overlay {
   position: absolute; inset: 0; z-index: 2;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  display: flex; flex-direction: column; justify-content: space-between;
   padding: clamp(16px, 2vw, 26px);
+}
+.at-home-overlay::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,18,15,.6) 0%, rgba(20,18,15,0) 34%);
+  pointer-events: none;
+}
+.at-home-overlay::after {
+  content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(20,18,15,0) 55%, rgba(20,18,15,.5) 100%);
   opacity: 0;
   transition: opacity .5s var(--ease);
+  pointer-events: none;
 }
-.at-home-item.is-hovering .at-home-overlay { opacity: 1; }
+.at-home-item.is-hovering .at-home-overlay::after { opacity: 1; }
 .at-home-loc {
+  position: relative; z-index: 1;
   color: var(--white); font-weight: 600; font-size: 0.64rem;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
   text-shadow: 0 1px 5px rgba(0,0,0,.9), 0 0 14px rgba(0,0,0,.5);
 }
 .at-home-desc {
+  position: relative; z-index: 1;
   color: var(--white); font-weight: 600; font-family: var(--font-display); font-size: 1.05rem;
   max-width: 30ch;
   text-shadow: 0 1px 6px rgba(0,0,0,.9), 0 0 16px rgba(0,0,0,.55);
@@ -729,8 +740,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .at-home-item.is-hovering .at-home-desc { max-height: 160px; margin-top: 6px; opacity: 1; }
 @media (max-width: 760px) {
-  .at-home-overlay { opacity: 1; background: linear-gradient(180deg, rgba(20,18,15,0) 60%, rgba(20,18,15,.62) 100%); }
-  .at-home-desc { max-height: 160px; margin-top: 6px; opacity: 1; }
+  /* Mobile has no real hover, and the description only belongs in the
+     tap-to-open lightbox here — keep it hidden on the tile itself even
+     if a touch browser fires a synthetic mouseenter. */
+  .at-home-desc, .at-home-overlay::after { display: none; }
 }
 
 /* ---------- At Home lightbox ---------- */
