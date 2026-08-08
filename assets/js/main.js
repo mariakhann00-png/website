@@ -186,6 +186,23 @@
       var sortSelect = qs("[data-sort-select]");
       var cards = qsa("[data-product-grid] > div");
 
+      var collectionHeading = qs("[data-collection-heading]");
+      var collectionDesc = qs("[data-collection-desc]");
+      var COLLECTION_COPY = {
+        "All": { heading: "The Collection", desc: "These pieces are part of our in-store selection — not listed for online sale, and not included in current promotions. Each is available to view and discuss in person, with our specialists on hand to help you find the right piece." },
+        "Traditional": { heading: "Traditional", desc: "Timeless carpets rooted in centuries of Persian artistry, featuring intricate motifs, rich colour palettes and enduring craftsmanship." },
+        "Transitional": { heading: "Transitional", desc: "A refined balance between heritage and modernity, blending traditional Persian motifs with softer palettes and contemporary sensibilities." },
+        "Contemporary": { heading: "Contemporary", desc: "Modern expressions of carpet artistry, defined by bold compositions, understated palettes and a fresh approach to timeless craftsmanship." },
+        "Kilims and Flatweaves": { heading: "Kilims & Flatweaves", desc: "Woven without a pile, these versatile carpets celebrate texture, geometric design and the beauty of traditional weaving techniques." },
+        "Machine Made": { heading: "Machine Made", desc: "Precisely crafted for contemporary living, offering the look and feel of a fine carpet with consistency, practicality and accessibility." }
+      };
+      function updateCollectionCopy(type) {
+        if (!collectionHeading || !collectionDesc) return;
+        var copy = COLLECTION_COPY[type] || COLLECTION_COPY["All"];
+        collectionHeading.textContent = copy.heading;
+        collectionDesc.textContent = copy.desc;
+      }
+
       function apply() {
         cards.forEach(function (card) {
           var matches =
@@ -209,6 +226,7 @@
           chips.forEach(function (c) { c.classList.remove("active"); });
           chip.classList.add("active");
           state.type = chip.getAttribute("data-filter");
+          updateCollectionCopy(state.type);
           apply();
         });
       });
@@ -225,6 +243,7 @@
           state.type = presetType;
         }
       }
+      updateCollectionCopy(state.type);
       apply();
     }
 
