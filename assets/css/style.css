@@ -379,6 +379,17 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .art-wide { aspect-ratio: 16/10; }
 .art-square { aspect-ratio: 1/1; }
 .art-tall { aspect-ratio: 3/4; }
+
+/* ---------- Real-photo equivalent of .art-wide (editorial alternating sections) ---------- */
+.services-photo { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; }
+.services-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Plain full-bleed hero photo (no text overlay) ---------- */
+.full-bleed-photo { width: 100%; aspect-ratio: 21/9; overflow: hidden; }
+.full-bleed-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 760px) {
+  .full-bleed-photo { aspect-ratio: 4/5; }
+}
 .art-dark { background: linear-gradient(160deg, #2a2926, #201e1b 60%, #16140f); }
 .art-dark::before { border-color: rgba(255,255,255,0.14); }
 .art-dark::after { color: rgba(255,255,255,0.35); }
@@ -481,15 +492,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .stat .num { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); }
 .stat .label { font-size: 0.72rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
-/* ---------- What We Offer ---------- */
-.offer-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 64px; }
-.offer-item { display: flex; align-items: flex-start; gap: 20px; }
-.offer-icon { width: 32px; height: auto; flex-shrink: 0; margin-top: 2px; opacity: .9; }
-.offer-item p {
-  font-family: var(--font-sans); font-size: 0.92rem; font-weight: 500;
-  letter-spacing: 0.03em; text-transform: uppercase; line-height: 1.5;
-  color: var(--black);
-}
 
 /* ---------- Full-bleed photo band (Three Generations, etc.) ---------- */
 .photo-band {
@@ -823,7 +825,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   }
   .nav-toggle span { width: 22px; height: 1px; background: var(--nav-fg); transition: background .5s var(--ease); }
   .logo-img { height: 51px; }
-  .grid-2, .grid-3, .grid-4, .offer-list { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   [data-product-grid] { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   [data-product-grid] .card-title { font-size: 1.05rem; }
   [data-product-grid] .btn-sm { padding: 10px 14px; font-size: 0.62rem; }
