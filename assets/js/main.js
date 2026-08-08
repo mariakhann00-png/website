@@ -189,7 +189,7 @@
       var collectionHeading = qs("[data-collection-heading]");
       var collectionDesc = qs("[data-collection-desc]");
       var COLLECTION_COPY = {
-        "All": { heading: "The Collection", desc: "These pieces are part of our in-store selection — not listed for online sale, and not included in current promotions. Each is available to view and discuss in person, with our specialists on hand to help you find the right piece." },
+        "All": { heading: "The Collection", desc: "Explore our current collection of carpets, carefully selected for their quality, design and character. Enquire with us for further details." },
         "Traditional": { heading: "Traditional", desc: "Timeless carpets rooted in centuries of Persian artistry, featuring intricate motifs, rich colour palettes and enduring craftsmanship." },
         "Transitional": { heading: "Transitional", desc: "A refined balance between heritage and modernity, blending traditional Persian motifs with softer palettes and contemporary sensibilities." },
         "Contemporary": { heading: "Contemporary", desc: "Modern expressions of carpet artistry, defined by bold compositions, understated palettes and a fresh approach to timeless craftsmanship." },
