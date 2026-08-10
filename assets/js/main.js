@@ -63,6 +63,40 @@
       qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
     }
 
+    /* ---------- Behind the Threads: fade/rise text blocks into view ---------- */
+    var revealEls = qsa("[data-reveal]");
+    if (revealEls.length) {
+      if ("IntersectionObserver" in window) {
+        var singleReveal = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              singleReveal.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        revealEls.forEach(function (el) { singleReveal.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add("is-in"); });
+      }
+    }
+
+    /* ---------- Behind the Threads: scroll-linked journey timeline ---------- */
+    var journeySteps = qsa(".journey-step");
+    var journeyImgs = qsa(".journey-img");
+    if (journeySteps.length && journeyImgs.length && "IntersectionObserver" in window) {
+      var setJourneyActive = function (i) {
+        journeySteps.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyStep === i); });
+        journeyImgs.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyImg === i); });
+      };
+      var journeyObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setJourneyActive(entry.target.dataset.journeyStep);
+        });
+      }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+      journeySteps.forEach(function (el) { journeyObserver.observe(el); });
+    }
+
     /* ---------- The Art of the Persian Rug: click-to-play video ---------- */
     qsa("[data-craft-video]").forEach(function (wrap) {
       var video = qs("video", wrap);

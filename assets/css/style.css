@@ -940,3 +940,148 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .inventory-table th, .inventory-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); }
 .inventory-table th { font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .inventory-table td:first-child, .inventory-table th:first-child { font-family: var(--font-sans); letter-spacing: 0.04em; }
+
+/* =======================================================================
+   Behind the Threads — editorial redesign (page-scoped, does not affect
+   any other page's shared components)
+   ======================================================================= */
+
+.editorial-kicker {
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: var(--tracking-wider); text-transform: uppercase;
+}
+.editorial-title { text-transform: uppercase; letter-spacing: 0.03em; }
+
+/* ---------- Scroll-reveal fade/rise for text blocks ---------- */
+[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 1.1s var(--ease-slow), transform 1.1s var(--ease-slow); }
+[data-reveal].is-in { opacity: 1; transform: translateY(0); }
+
+/* ---------- 01 Hero ---------- */
+.thread-hero { position: relative; height: 92vh; min-height: 620px; max-height: 980px; overflow: hidden; }
+.thread-hero-media { position: absolute; inset: 0; }
+.thread-hero-media img, .thread-hero-media .art {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transform: scale(1.08); opacity: 0;
+  animation: threadHeroReveal 2.4s var(--ease-slow) forwards;
+}
+@keyframes threadHeroReveal { from { transform: scale(1.08); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.thread-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20,19,17,.72) 0%, rgba(20,19,17,.22) 46%, rgba(20,19,17,.08) 100%);
+}
+.thread-hero-content {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 var(--gutter) clamp(48px, 8vw, 96px);
+  max-width: 760px;
+}
+.thread-hero-content .editorial-kicker { color: rgba(255,255,255,.75); }
+.thread-hero-content h1 { color: var(--white); margin-top: 18px; text-wrap: balance; }
+.thread-hero-content .lede { color: rgba(255,255,255,.85); margin-top: 20px; max-width: 46ch; }
+
+/* ---------- 02 Three Generations (editorial split) ---------- */
+.section-editorial { padding-block: clamp(72px, 11vw, 160px); }
+.heritage-split { align-items: center; gap: clamp(40px, 6vw, 96px); }
+.heritage-split .art { aspect-ratio: 3/4; }
+.route-line {
+  margin-top: clamp(32px, 5vw, 56px);
+  font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  line-height: 1.9;
+}
+
+/* ---------- Archival photo placeholder (cooler, monochrome-leaning) ---------- */
+.art-archival { background: linear-gradient(160deg, #e9e7e2, #cdccc6 55%, #b7b5ad); }
+.art-archival::after { color: rgba(32,30,27,0.45); }
+
+/* ---------- 03 The Journey ---------- */
+.journey-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+.journey-track { position: relative; padding-left: 32px; }
+.journey-track::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--line-strong); }
+.journey-step { position: relative; padding-block: clamp(28px, 4vw, 44px); cursor: default; }
+.journey-step:first-child { padding-top: 0; }
+.journey-step::before {
+  content: ""; position: absolute; left: -32px; top: clamp(32px, 4.6vw, 48px);
+  width: 9px; height: 9px; margin-left: 1px; border-radius: 50%;
+  background: var(--white); border: 1px solid var(--line-strong);
+  transition: background .5s var(--ease), border-color .5s var(--ease), transform .5s var(--ease);
+}
+.journey-step.is-active::before { background: var(--black); border-color: var(--black); transform: scale(1.25); }
+.journey-num { font-family: var(--font-sans); font-size: 0.66rem; letter-spacing: var(--tracking-wide); color: var(--muted); }
+.journey-title { font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.7rem); margin-top: 10px; color: var(--stone-dark); transition: color .5s var(--ease); }
+.journey-step.is-active .journey-title { color: var(--black); }
+.journey-sub { font-family: var(--font-display); font-style: italic; font-size: 0.92rem; color: var(--muted); margin-top: 4px; }
+.journey-text { color: var(--muted); margin-top: 10px; line-height: 1.7; font-size: 0.92rem; max-width: 42ch; opacity: .55; transition: opacity .5s var(--ease); }
+.journey-step.is-active .journey-text { opacity: 1; }
+.journey-media { position: sticky; top: calc(var(--nav-h) + 32px); aspect-ratio: 4/5; overflow: hidden; }
+.journey-img {
+  position: absolute; inset: 0; opacity: 0; transform: scale(1.05);
+  transition: opacity 1s var(--ease-slow), transform 1.4s var(--ease-slow);
+}
+.journey-img.is-active { opacity: 1; transform: scale(1); }
+.journey-img img, .journey-img .art { width: 100%; height: 100%; }
+
+/* ---------- 04 The Art of Knowing ---------- */
+.knowing-intro { max-width: 56ch; }
+.knowing-grid {
+  margin-top: clamp(40px, 6vw, 72px);
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2.4vw, 28px);
+}
+.knowing-item { position: relative; }
+.knowing-media { position: relative; overflow: hidden; }
+.knowing-media img, .knowing-media .art { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
+.knowing-item:hover .knowing-media img, .knowing-item:hover .knowing-media .art { transform: scale(1.045); }
+.knowing-origin { grid-column: 1 / 8; align-self: start; }
+.knowing-craft { grid-column: 8 / 13; margin-top: clamp(48px, 8vw, 96px); }
+.knowing-character { grid-column: 3 / 10; margin-top: clamp(24px, 4vw, 40px); }
+.knowing-origin .knowing-media { aspect-ratio: 4/5; }
+.knowing-craft .knowing-media { aspect-ratio: 4/5; }
+.knowing-character .knowing-media { aspect-ratio: 16/10; }
+.knowing-cap {
+  margin-top: 14px; display: flex; align-items: baseline; gap: 10px;
+  font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted);
+}
+.knowing-cap b { color: var(--black); font-weight: 500; }
+
+/* ---------- 05 Made to Be Lived With ---------- */
+.lived-with-media { max-width: 920px; margin-inline: auto; aspect-ratio: 16/10; overflow: hidden; }
+.lived-with-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lived-with-text { max-width: 540px; margin-inline: auto; text-align: center; margin-top: clamp(32px, 5vw, 56px); }
+.lived-with-line {
+  margin-top: 18px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ---------- 06 Final cinematic section ---------- */
+.story-final { position: relative; height: 88vh; min-height: 560px; max-height: 900px; overflow: hidden; }
+.story-final-media { position: absolute; inset: 0; }
+.story-final-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.story-final::after { content: ""; position: absolute; inset: 0; background: rgba(20,19,17,.46); }
+.story-final-content {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding-inline: var(--gutter);
+}
+.story-final-content .editorial-kicker { color: rgba(255,255,255,.7); }
+.story-final-content h2 { color: var(--white); margin-top: 18px; }
+.story-final-content .lede { color: rgba(255,255,255,.85); margin-top: 18px; max-width: 46ch; margin-inline: auto; }
+.story-final-line {
+  margin-top: 20px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.65);
+}
+
+@media (max-width: 860px) {
+  .journey-grid { grid-template-columns: 1fr; }
+  .journey-media { position: static; aspect-ratio: 4/5; margin-bottom: 32px; }
+  .knowing-origin { grid-column: 1 / -1; margin-top: 0; }
+  .knowing-craft { grid-column: 1 / -1; margin-top: 20px; }
+  .knowing-character { grid-column: 1 / -1; margin-top: 20px; }
+  .thread-hero { height: 86vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thread-hero-media img, .thread-hero-media .art { animation: none; opacity: 1; transform: none; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .journey-img { transition: opacity .3s linear; transform: none; }
+  .journey-step::before, .journey-title, .journey-text { transition: none; }
+}
