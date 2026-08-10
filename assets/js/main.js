@@ -84,17 +84,42 @@
     /* ---------- Behind the Threads: scroll-linked journey timeline ---------- */
     var journeySteps = qsa(".journey-step");
     var journeyImgs = qsa(".journey-img");
-    if (journeySteps.length && journeyImgs.length && "IntersectionObserver" in window) {
+    if (journeySteps.length && journeyImgs.length) {
       var setJourneyActive = function (i) {
         journeySteps.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyStep === i); });
         journeyImgs.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyImg === i); });
       };
-      var journeyObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) setJourneyActive(entry.target.dataset.journeyStep);
+      var journeyTicking = false;
+      var updateJourneyActive = function () {
+        journeyTicking = false;
+        var center = window.innerHeight * 0.42;
+        var closest = null, closestDist = Infinity;
+        journeySteps.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          var mid = rect.top + rect.height / 2;
+          var dist = Math.abs(mid - center);
+          if (dist < closestDist) { closestDist = dist; closest = el; }
         });
-      }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
-      journeySteps.forEach(function (el) { journeyObserver.observe(el); });
+        if (closest) setJourneyActive(closest.dataset.journeyStep);
+      };
+      var onJourneyScroll = function () {
+        if (!journeyTicking) { journeyTicking = true; requestAnimationFrame(updateJourneyActive); }
+      };
+      window.addEventListener("scroll", onJourneyScroll, { passive: true });
+      window.addEventListener("resize", onJourneyScroll);
+      updateJourneyActive();
+
+      var jumpToJourneyStep = function (el) {
+        var rect = el.getBoundingClientRect();
+        var y = window.scrollY + rect.top - window.innerHeight * 0.42 + rect.height / 2;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      };
+      journeySteps.forEach(function (el) {
+        el.addEventListener("click", function () { jumpToJourneyStep(el); });
+        el.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); jumpToJourneyStep(el); }
+        });
+      });
     }
 
     /* ---------- The Art of the Persian Rug: click-to-play video ---------- */

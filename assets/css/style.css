@@ -979,10 +979,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .thread-hero-content h1 { color: var(--white); margin-top: 18px; text-wrap: balance; }
 .thread-hero-content .lede { color: rgba(255,255,255,.85); margin-top: 20px; max-width: 46ch; }
 
-/* ---------- 02 Three Generations (editorial split) ---------- */
+/* ---------- 02 Three Generations (full-width editorial statement) ---------- */
 .section-editorial { padding-block: clamp(72px, 11vw, 160px); }
-.heritage-split { align-items: center; gap: clamp(40px, 6vw, 96px); }
-.heritage-split .art { aspect-ratio: 3/4; }
+.heritage-split { max-width: 900px; }
 .route-line {
   margin-top: clamp(32px, 5vw, 56px);
   font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
@@ -998,8 +997,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
 .journey-track { position: relative; padding-left: 32px; }
 .journey-track::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--line-strong); }
-.journey-step { position: relative; padding-block: clamp(28px, 4vw, 44px); cursor: default; }
+.journey-step { position: relative; padding-block: clamp(28px, 4vw, 44px); cursor: pointer; }
 .journey-step:first-child { padding-top: 0; }
+.journey-step:hover .journey-title { color: var(--black); }
+.journey-step:focus-visible { outline: 1px solid var(--line-strong); outline-offset: 8px; }
 .journey-step::before {
   content: ""; position: absolute; left: -32px; top: clamp(32px, 4.6vw, 48px);
   width: 9px; height: 9px; margin-left: 1px; border-radius: 50%;
@@ -1021,22 +1022,16 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-img.is-active { opacity: 1; transform: scale(1); }
 .journey-img img, .journey-img .art { width: 100%; height: 100%; }
 
-/* ---------- 04 The Art of Knowing ---------- */
+/* ---------- 04 The Art of Knowing (three equal photos, like the homepage) ---------- */
 .knowing-intro { max-width: 56ch; }
 .knowing-grid {
   margin-top: clamp(40px, 6vw, 72px);
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2.4vw, 28px);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px);
 }
 .knowing-item { position: relative; }
-.knowing-media { position: relative; overflow: hidden; }
+.knowing-media { position: relative; overflow: hidden; aspect-ratio: 4/5; }
 .knowing-media img, .knowing-media .art { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
 .knowing-item:hover .knowing-media img, .knowing-item:hover .knowing-media .art { transform: scale(1.045); }
-.knowing-origin { grid-column: 1 / 8; align-self: start; }
-.knowing-craft { grid-column: 8 / 13; margin-top: clamp(48px, 8vw, 96px); }
-.knowing-character { grid-column: 3 / 10; margin-top: clamp(24px, 4vw, 40px); }
-.knowing-origin .knowing-media { aspect-ratio: 4/5; }
-.knowing-craft .knowing-media { aspect-ratio: 4/5; }
-.knowing-character .knowing-media { aspect-ratio: 16/10; }
 .knowing-cap {
   margin-top: 14px; display: flex; align-items: baseline; gap: 10px;
   font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted);
@@ -1052,30 +1047,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
 }
 
-/* ---------- 06 Final cinematic section ---------- */
-.story-final { position: relative; height: 88vh; min-height: 560px; max-height: 900px; overflow: hidden; }
-.story-final-media { position: absolute; inset: 0; }
-.story-final-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.story-final::after { content: ""; position: absolute; inset: 0; background: rgba(20,19,17,.46); }
-.story-final-content {
-  position: relative; z-index: 2; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-  padding-inline: var(--gutter);
-}
-.story-final-content .editorial-kicker { color: rgba(255,255,255,.7); }
-.story-final-content h2 { color: var(--white); margin-top: 18px; }
-.story-final-content .lede { color: rgba(255,255,255,.85); margin-top: 18px; max-width: 46ch; margin-inline: auto; }
-.story-final-line {
-  margin-top: 20px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.65);
-}
-
 @media (max-width: 860px) {
   .journey-grid { grid-template-columns: 1fr; }
   .journey-media { position: static; aspect-ratio: 4/5; margin-bottom: 32px; }
-  .knowing-origin { grid-column: 1 / -1; margin-top: 0; }
-  .knowing-craft { grid-column: 1 / -1; margin-top: 20px; }
-  .knowing-character { grid-column: 1 / -1; margin-top: 20px; }
+  .knowing-grid { grid-template-columns: 1fr; }
   .thread-hero { height: 86vh; }
 }
 
