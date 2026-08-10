@@ -385,11 +385,14 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .services-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---------- Plain full-bleed hero photo (no text overlay) ---------- */
-.full-bleed-photo { width: 100%; aspect-ratio: 32/9; overflow: hidden; }
+.full-bleed-photo { width: 100%; aspect-ratio: 44/9; overflow: hidden; }
 .full-bleed-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 760px) {
   .full-bleed-photo { aspect-ratio: 16/9; }
 }
+
+/* ---------- Services editorial sections (tighter rhythm than default) ---------- */
+.service-section { padding-block: clamp(28px, 3.6vw, 60px); }
 .art-dark { background: linear-gradient(160deg, #2a2926, #201e1b 60%, #16140f); }
 .art-dark::before { border-color: rgba(255,255,255,0.14); }
 .art-dark::after { color: rgba(255,255,255,0.35); }
