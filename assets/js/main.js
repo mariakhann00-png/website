@@ -63,6 +63,24 @@
       qsa("[data-reveal-grid]").forEach(function (el) { el.classList.add("is-visible"); });
     }
 
+    /* ---------- The Art of the Persian Rug: click-to-play video ---------- */
+    qsa("[data-craft-video]").forEach(function (wrap) {
+      var video = qs("video", wrap);
+      if (!video) return;
+      wrap.addEventListener("click", function () {
+        if (video.paused) {
+          video.muted = false;
+          video.play();
+          wrap.classList.add("is-playing");
+        } else {
+          video.pause();
+          wrap.classList.remove("is-playing");
+        }
+      });
+      video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
+      video.addEventListener("pause", function () { wrap.classList.remove("is-playing"); });
+    });
+
     /* ---------- At Home: click/tap opens a full lightbox ---------- */
     var lightbox = qs("[data-at-home-lightbox]");
     if (lightbox) {

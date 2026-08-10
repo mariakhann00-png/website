@@ -771,9 +771,32 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 
 /* ---------- The Art of the Persian Rug ---------- */
-.craft-part { min-width: 0; }
-.craft-media { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 24px; }
+.craft-part { min-width: 0; position: relative; transition: z-index 0s; }
+.craft-media { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 24px; position: relative; transition: transform .6s var(--ease); }
 .craft-media .art { width: 100%; height: 100%; }
+.craft-media img, .craft-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.craft-media.has-video { cursor: pointer; }
+@media (hover: hover) {
+  .craft-part:hover { z-index: 2; }
+  .craft-part:hover .craft-media { transform: scale(1.12); }
+}
+.craft-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.85);
+  background: rgba(0,0,0,.12);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .4s var(--ease);
+  pointer-events: none;
+}
+.craft-play svg { width: 18px; height: 18px; fill: #fff; margin-left: 3px; }
+@media (hover: hover) {
+  .craft-media:hover .craft-play { opacity: 1; }
+}
+@media (hover: none) {
+  .craft-play { opacity: .55; }
+}
+.craft-media.is-playing .craft-play { opacity: 0; }
 .craft-num {
   font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
