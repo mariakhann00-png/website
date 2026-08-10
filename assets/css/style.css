@@ -973,15 +973,15 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   position: relative; z-index: 2; height: 100%;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 var(--gutter) clamp(48px, 8vw, 96px);
-  max-width: 760px;
+  max-width: 1040px;
 }
 .thread-hero-content .editorial-kicker { color: rgba(255,255,255,.75); }
 .thread-hero-content h1 { color: var(--white); margin-top: 18px; text-wrap: balance; }
-.thread-hero-content .lede { color: rgba(255,255,255,.85); margin-top: 20px; max-width: 46ch; }
+.thread-hero-content .lede { color: rgba(255,255,255,.85); max-width: 64ch; }
+.thread-hero-content .route-line { color: rgba(255,255,255,.65); }
 
 /* ---------- 02 Three Generations (full-width editorial statement) ---------- */
 .section-editorial { padding-block: clamp(72px, 11vw, 160px); }
-.heritage-split { max-width: 900px; }
 .route-line {
   margin-top: clamp(32px, 5vw, 56px);
   font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
@@ -995,7 +995,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 /* ---------- 03 The Journey ---------- */
 .journey-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
-.journey-track { position: relative; padding-left: 32px; }
+.journey-track { position: relative; padding-left: 32px; padding-bottom: 220px; }
 .journey-track::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--line-strong); }
 .journey-step { position: relative; padding-block: clamp(28px, 4vw, 44px); cursor: pointer; }
 .journey-step:first-child { padding-top: 0; }
@@ -1014,7 +1014,12 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-sub { font-family: var(--font-display); font-style: italic; font-size: 0.92rem; color: var(--muted); margin-top: 4px; }
 .journey-text { color: var(--muted); margin-top: 10px; line-height: 1.7; font-size: 0.92rem; max-width: 42ch; opacity: .55; transition: opacity .5s var(--ease); }
 .journey-step.is-active .journey-text { opacity: 1; }
-.journey-media { position: sticky; top: calc(var(--nav-h) + 32px); aspect-ratio: 4/5; overflow: hidden; }
+.journey-media {
+  position: sticky; top: calc(var(--nav-h) + 40px);
+  width: min(420px, 100%);
+  height: min(520px, calc(100vh - var(--nav-h) - 80px));
+  overflow: hidden;
+}
 .journey-img {
   position: absolute; inset: 0; opacity: 0; transform: scale(1.05);
   transition: opacity 1s var(--ease-slow), transform 1.4s var(--ease-slow);
@@ -1049,7 +1054,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 @media (max-width: 860px) {
   .journey-grid { grid-template-columns: 1fr; }
-  .journey-media { position: static; aspect-ratio: 4/5; margin-bottom: 32px; }
+  .journey-media { position: static; width: 100%; height: auto; aspect-ratio: 4/5; max-height: none; margin-bottom: 32px; }
+  .journey-track { padding-bottom: 0; }
   .knowing-grid { grid-template-columns: 1fr; }
   .thread-hero { height: 86vh; }
 }
