@@ -625,9 +625,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 /* ---------- Contact page: form + location list ---------- */
 .contact-grid { grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 80px); }
-.location-row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding-block: 32px; border-top: 1px solid var(--line); }
+.location-row { padding-block: 32px; border-top: 1px solid var(--line); }
 .location-row:first-child { padding-top: 0; border-top: none; }
-.location-photo { align-self: start; }
 .location-heading { font-size: 1.4rem; }
 .location-address { color: var(--muted); margin-top: 10px; line-height: 1.6; font-size: 0.92rem; }
 .location-contact { margin-top: 10px; font-size: 0.92rem; }
@@ -641,10 +640,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   box-shadow: 0 2px 8px rgba(0,0,0,.14);
 }
 .location-map-badge:hover { color: var(--black); }
-@media (max-width: 760px) {
-  .location-row { grid-template-columns: 1fr; }
-  .location-photo { max-width: 220px; }
-}
 
 .breadcrumb { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-block: 22px; }
 .breadcrumb a:hover { color: var(--black); }
