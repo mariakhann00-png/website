@@ -984,7 +984,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .section-editorial { padding-block: clamp(72px, 11vw, 160px); }
 .route-line {
   margin-top: clamp(32px, 5vw, 56px);
-  font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
+  font-family: var(--font-sans); font-size: 0.66rem; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
   line-height: 1.9;
 }
@@ -1025,7 +1025,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   transition: opacity 1s var(--ease-slow), transform 1.4s var(--ease-slow);
 }
 .journey-img.is-active { opacity: 1; transform: scale(1); }
-.journey-img img, .journey-img .art { width: 100%; height: 100%; }
+.journey-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.journey-img .art { width: 100%; height: 100%; }
 
 /* ---------- 04 The Art of Knowing (three equal photos, like the homepage) ---------- */
 .knowing-intro { max-width: 56ch; }
@@ -1046,7 +1047,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 /* ---------- 05 Made to Be Lived With ---------- */
 .lived-with-media { max-width: 920px; margin-inline: auto; aspect-ratio: 16/10; overflow: hidden; }
 .lived-with-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lived-with-text { max-width: 540px; margin-inline: auto; text-align: center; margin-top: clamp(32px, 5vw, 56px); }
+.lived-with-text { max-width: 620px; margin-inline: auto; text-align: center; margin-top: clamp(32px, 5vw, 56px); }
+.lived-with-text .lede { max-width: 58ch; margin-inline: auto; }
 .lived-with-line {
   margin-top: 18px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
