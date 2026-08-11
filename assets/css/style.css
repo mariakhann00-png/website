@@ -967,18 +967,19 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 @keyframes threadHeroReveal { from { transform: scale(1.08); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .thread-hero::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(20,19,17,.72) 0%, rgba(20,19,17,.22) 46%, rgba(20,19,17,.08) 100%);
+  background: linear-gradient(0deg, rgba(15,14,12,.86) 0%, rgba(15,14,12,.56) 55%, rgba(15,14,12,.22) 100%);
 }
 .thread-hero-content {
   position: relative; z-index: 2; height: 100%;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 var(--gutter) clamp(48px, 8vw, 96px);
   max-width: 1040px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.5);
 }
-.thread-hero-content .editorial-kicker { color: rgba(255,255,255,.75); }
+.thread-hero-content .editorial-kicker { color: rgba(255,255,255,.92); font-weight: 600; }
 .thread-hero-content h1 { color: var(--white); margin-top: 18px; text-wrap: balance; }
-.thread-hero-content .lede { color: rgba(255,255,255,.85); max-width: 64ch; }
-.thread-hero-content .route-line { color: rgba(255,255,255,.65); }
+.thread-hero-content .lede { color: rgba(255,255,255,.95); max-width: 64ch; }
+.thread-hero-content .route-line { color: rgba(255,255,255,.85); }
 
 /* ---------- 02 Three Generations (full-width editorial statement) ---------- */
 .section-editorial { padding-block: clamp(72px, 11vw, 160px); }
@@ -1029,23 +1030,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-img .art { width: 100%; height: 100%; }
 .journey-mobile-grid { display: none; }
 
-/* ---------- 04 The Art of Knowing (three equal photos, like the homepage) ---------- */
-.knowing-intro { max-width: 56ch; }
-.knowing-grid {
-  margin-top: clamp(40px, 6vw, 72px);
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px);
-}
-.knowing-item { position: relative; }
-.knowing-media { position: relative; overflow: hidden; aspect-ratio: 4/5; }
-.knowing-media img, .knowing-media .art { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.6s var(--ease-slow); }
-.knowing-item:hover .knowing-media img, .knowing-item:hover .knowing-media .art { transform: scale(1.045); }
-.knowing-cap {
-  margin-top: 14px; display: flex; align-items: baseline; gap: 10px;
-  font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--muted);
-}
-.knowing-cap b { color: var(--black); font-weight: 500; }
-
-/* ---------- 05 Made to Be Lived With ---------- */
+/* ---------- 04 Made to Be Lived With ---------- */
 .lived-with-media { max-width: 920px; margin-inline: auto; aspect-ratio: 16/10; overflow: hidden; }
 .lived-with-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .lived-with-text { max-width: 620px; margin-inline: auto; text-align: center; margin-top: clamp(32px, 5vw, 56px); }
@@ -1062,7 +1047,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .journey-mobile-item { aspect-ratio: 4/5; overflow: hidden; }
   .journey-mobile-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .journey-track { padding-bottom: 0; }
-  .knowing-grid { grid-template-columns: 1fr; }
   .thread-hero { height: 86vh; }
 }
 
