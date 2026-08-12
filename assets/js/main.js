@@ -339,13 +339,19 @@
     /* ---------- cart drawer open/close ---------- */
     var scrim = qs(".overlay-scrim");
     var drawer = qs(".cart-drawer");
+    function syncBodyScrollLock() {
+      var anyOpen = (drawer && drawer.classList.contains("is-open")) || (modal && modal.classList.contains("is-open"));
+      document.body.style.overflow = anyOpen ? "hidden" : "";
+    }
     function openCart() {
       drawer.classList.add("is-open");
       scrim.classList.add("is-open");
+      syncBodyScrollLock();
     }
     function closeCart() {
       drawer.classList.remove("is-open");
       scrim.classList.remove("is-open");
+      syncBodyScrollLock();
     }
     qsa("[data-open-cart]").forEach(function (btn) {
       btn.addEventListener("click", function (e) { e.preventDefault(); openCart(); });
@@ -389,10 +395,12 @@
       }
       modal.classList.add("is-open");
       scrim.classList.add("is-open");
+      syncBodyScrollLock();
     }
     function closeModal() {
       if (modal) modal.classList.remove("is-open");
       if (scrim && !drawer.classList.contains("is-open")) scrim.classList.remove("is-open");
+      syncBodyScrollLock();
     }
     window.closeModal = closeModal;
     qsa("[data-open-enquiry]").forEach(function (btn) {

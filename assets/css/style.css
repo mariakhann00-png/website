@@ -562,7 +562,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .overlay-scrim {
   position: fixed; inset: 0; background: rgba(43,41,38,.5);
   opacity: 0; pointer-events: none; transition: opacity .35s var(--ease);
-  z-index: 90;
+  z-index: 240;
 }
 .overlay-scrim.is-open { opacity: 1; pointer-events: auto; }
 
@@ -570,7 +570,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   position: fixed; top: 0; right: 0; height: 100%;
   width: min(440px, 100%);
   background: var(--white);
-  z-index: 100;
+  z-index: 250;
   transform: translateX(100%);
   transition: transform .45s var(--ease);
   display: flex; flex-direction: column;
@@ -600,7 +600,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 /* ---------- Enquiry Modal ---------- */
 .modal {
-  position: fixed; inset: 0; z-index: 110;
+  position: fixed; inset: 0; z-index: 260;
   display: flex; align-items: center; justify-content: center;
   padding: 24px;
   opacity: 0; pointer-events: none; transition: opacity .35s var(--ease);
@@ -657,7 +657,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px);
   background: var(--black); color: var(--white);
   padding: 14px 26px; font-size: 0.78rem; letter-spacing: 0.04em;
-  z-index: 130; opacity: 0; pointer-events: none;
+  z-index: 270; opacity: 0; pointer-events: none;
   transition: all .35s var(--ease);
 }
 .toast.is-open { opacity: 1; transform: translate(-50%, 0); }
@@ -942,7 +942,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .mobile-nav.is-open { visibility: visible; transition: transform .4s var(--ease), visibility 0s linear 0s; }
   .mobile-nav.is-open { transform: translateY(0); }
   .mobile-nav-close {
-    position: fixed; top: 22px; right: var(--gutter); z-index: 250;
+    position: fixed; top: 22px; right: var(--gutter); z-index: 255;
     width: 42px; height: 42px;
     display: flex; align-items: center; justify-content: center;
     background: var(--black); border: none; border-radius: 50%;
