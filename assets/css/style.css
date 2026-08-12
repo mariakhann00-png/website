@@ -786,9 +786,17 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 
 /* ---------- Home Consultation (editorial CTA, between At Home and Visit) ---------- */
+.home-consult { padding-top: clamp(24px, 4vw, 56px); }
 .home-consult-heading { font-size: clamp(2.2rem, 3.4vw, 3rem); text-wrap: balance; }
-.home-consult-heading a { color: inherit; text-decoration: none; transition: opacity .3s var(--ease); }
+.home-consult-heading a {
+  color: inherit; text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 8px;
+  transition: opacity .3s var(--ease), border-color .3s var(--ease);
+}
 .home-consult-heading a:hover { opacity: .6; }
+.home-consult-heading a::after { content: " \2192"; }
 .home-consult-sub { max-width: 60ch; }
 @media (min-width: 900px) {
   .home-consult-heading { white-space: nowrap; }
