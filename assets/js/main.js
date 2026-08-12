@@ -479,7 +479,7 @@
     if (!body) return;
 
     if (items.length === 0) {
-      body.innerHTML = '<div class="drawer-empty"><p class="eyebrow">Your cart is empty</p><p class="mt-12">Discover pieces from the collection.</p><a href="shop.html" class="text-link mt-24" style="display:inline-block">Shop the Collection</a></div>';
+      body.innerHTML = '<div class="drawer-empty"><p class="eyebrow">Your cart is empty</p><p class="mt-12">Discover pieces from the collection.</p><a href="shop.html" class="text-link mt-24" style="display:inline-block">Shop Online</a></div>';
       if (footer) footer.style.display = "none";
       return;
     }

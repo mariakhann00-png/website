@@ -996,7 +996,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 
 /* ---------- 03 The Journey ---------- */
 .journey-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
-.journey-track { position: relative; padding-left: 32px; padding-bottom: 220px; }
+.journey-track { position: relative; padding-left: 32px; padding-bottom: 100px; }
 .journey-track::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--line-strong); }
 .journey-step { position: relative; padding-block: clamp(28px, 4vw, 44px); cursor: pointer; }
 .journey-step:first-child { padding-top: 0; }
@@ -1029,16 +1029,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .journey-img .art { width: 100%; height: 100%; }
 .journey-mobile-grid { display: none; }
-
-/* ---------- 04 Made to Be Lived With ---------- */
-.lived-with-media { max-width: 920px; margin-inline: auto; aspect-ratio: 16/10; overflow: hidden; }
-.lived-with-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lived-with-text { max-width: 620px; margin-inline: auto; text-align: center; margin-top: clamp(32px, 5vw, 56px); }
-.lived-with-text .lede { max-width: 58ch; margin-inline: auto; }
-.lived-with-line {
-  margin-top: 18px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
-}
 
 @media (max-width: 860px) {
   .journey-grid { grid-template-columns: 1fr; }
