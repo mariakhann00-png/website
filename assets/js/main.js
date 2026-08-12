@@ -372,15 +372,20 @@
 
     /* ---------- enquiry modal ---------- */
     var modal = qs(".modal");
+    var messageEl = qs("[data-modal-message]", modal);
+    var defaultPlaceholder = messageEl ? messageEl.placeholder : "";
     function openModal(piece) {
       if (!modal) return;
       if (piece) {
         var nameEl = qs("[data-modal-piece-name]", modal);
         var metaEl = qs("[data-modal-piece-meta]", modal);
+        var noteEl = qs("[data-modal-piece-note]", modal);
         var hidden = qs("input[name='piece']", modal);
         if (nameEl) nameEl.textContent = piece.title;
         if (metaEl) metaEl.textContent = piece.meta || "";
         if (hidden) hidden.value = piece.title;
+        if (noteEl) noteEl.hidden = !piece.id;
+        if (messageEl) messageEl.placeholder = piece.placeholder || defaultPlaceholder;
       }
       modal.classList.add("is-open");
       scrim.classList.add("is-open");

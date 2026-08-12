@@ -617,6 +617,14 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   position: absolute; top: 18px; right: 18px; background: none; border: none;
   font-size: 1.6rem; font-weight: 300; line-height: 1;
 }
+.modal-piece-note {
+  display: flex; align-items: flex-start; gap: 8px;
+  margin-top: 14px; padding: 12px 14px;
+  background: var(--ivory); border: 1px solid var(--line);
+  font-size: 0.76rem; line-height: 1.5; color: var(--muted);
+}
+.modal-piece-note[hidden] { display: none; }
+.modal-piece-note svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
 
 /* ---------- Info page bits ---------- */
 .branch-card { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--line); }

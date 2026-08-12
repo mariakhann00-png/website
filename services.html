@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=520f2da3">
+<link rel="stylesheet" href="assets/css/style.css?v=64903f29">
 
 </head>
 <body class="page-services">
@@ -101,7 +101,7 @@
         <p class="eyebrow">01</p>
         <h2 class="mt-16">Home Consultations &amp; In-Home Viewing</h2>
         <p class="lede mt-16">Choose the carpets you&rsquo;d like to view and we&rsquo;ll bring them to your home. We handle the moving and laying, so you can see how each piece works in your space.</p>
-        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Home Consultations & In-Home Viewing&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;}">Enquire</a>
+        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Home Consultations & In-Home Viewing&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;, &quot;placeholder&quot;: &quot;Tell us a bit about what you need...&quot;}">Enquire</a>
       </div>
     </div>
   </section><section class="service-section bg-ivory">
@@ -111,7 +111,7 @@
         <p class="eyebrow">02</p>
         <h2 class="mt-16">Rug Cleaning</h2>
         <p class="lede mt-16">Every carpet requires a different approach. We assess each piece carefully to ensure it receives the appropriate cleaning and treatment.</p>
-        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Rug Cleaning&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;}">Enquire</a>
+        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Rug Cleaning&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;, &quot;placeholder&quot;: &quot;Tell us a bit about what you need...&quot;}">Enquire</a>
       </div>
     </div>
   </section><section class="service-section">
@@ -121,7 +121,7 @@
         <p class="eyebrow">03</p>
         <h2 class="mt-16">Repairs &amp; Restoration</h2>
         <p class="lede mt-16">From minor repairs to more extensive restoration, each carpet is assessed and treated according to its individual needs.</p>
-        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Repairs & Restoration&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;}">Enquire</a>
+        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Repairs & Restoration&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;, &quot;placeholder&quot;: &quot;Tell us a bit about what you need...&quot;}">Enquire</a>
       </div>
     </div>
   </section><section class="service-section bg-ivory">
@@ -131,7 +131,7 @@
         <p class="eyebrow">04</p>
         <h2 class="mt-16">Valuations</h2>
         <p class="lede mt-16">Professional valuations based on the carpet&rsquo;s origin, age, quality and condition, whether for insurance, estate purposes or personal knowledge.</p>
-        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Valuations&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;}">Enquire</a>
+        <a href="#" class="text-link mt-24" style="display:inline-block" data-open-enquiry data-piece="{&quot;title&quot;: &quot;Valuations&quot;, &quot;meta&quot;: &quot;Service Enquiry&quot;, &quot;placeholder&quot;: &quot;Tell us a bit about what you need...&quot;}">Enquire</a>
       </div>
     </div>
   </section>
@@ -213,6 +213,10 @@
       <p class="eyebrow">Collection Enquiry</p>
       <h3 class="mt-8" data-modal-piece-name>Enquire About This Piece</h3>
       <p class="text-muted mt-8" data-modal-piece-meta></p>
+      <p class="modal-piece-note" data-modal-piece-note hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>This enquiry is linked to the piece above &mdash; no need to describe the rug below, we&rsquo;ve got the details.</span>
+      </p>
       <form id="enquiry-form" class="mt-32">
         <input type="hidden" name="piece">
         <div class="grid grid-2" style="gap:20px">
@@ -220,12 +224,12 @@
           <div class="field"><label>Phone</label><input type="tel" required></div>
         </div>
         <div class="field"><label>Email</label><input type="email" required></div>
-        <div class="field"><label>Message</label><textarea placeholder="I'd like to arrange a private viewing of this piece..."></textarea></div>
+        <div class="field"><label>Message</label><textarea placeholder="Anything else you'd like us to know? (optional)" data-modal-message></textarea></div>
         <button type="submit" class="btn btn-block">Send Enquiry</button>
       </form>
     </div>
   </div>
   <div class="toast"></div>
-<script src="assets/js/main.js?v=8874e308"></script>
+<script src="assets/js/main.js?v=73e87b5f"></script>
 </body>
 </html>

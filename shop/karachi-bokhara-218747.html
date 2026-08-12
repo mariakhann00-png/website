@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=520f2da3">
+<link rel="stylesheet" href="../assets/css/style.css?v=64903f29">
 
 </head>
 <body class="page-shop">
@@ -99,7 +99,7 @@
         </div>
 
         <button class="btn btn-block mt-16" data-add-to-cart data-product="{&quot;id&quot;: &quot;karachi-bokhara-218747&quot;, &quot;title&quot;: &quot;Karachi Bokhara Super Fine&quot;, &quot;price&quot;: 6499, &quot;meta&quot;: &quot;Pakistan &middot; 180 x 123 cm&quot;, &quot;artLabel&quot;: &quot;Karachi Bokhara Super Fine&quot;}">Add to Cart &mdash; R 6,499</button>
-        <a href="#" class="btn btn-outline btn-block mt-12" data-open-enquiry data-piece="{&quot;id&quot;: &quot;karachi-bokhara-218747&quot;, &quot;title&quot;: &quot;Karachi Bokhara Super Fine&quot;, &quot;meta&quot;: &quot;Pakistan,  &middot; 180 x 123 cm&quot;}">Ask a Specialist</a>
+        <a href="#" class="btn btn-outline btn-block mt-12" data-open-enquiry data-piece="{&quot;id&quot;: &quot;karachi-bokhara-218747&quot;, &quot;title&quot;: &quot;Karachi Bokhara Super Fine&quot;, &quot;meta&quot;: &quot;Pakistan,  &middot; 180 x 123 cm&quot;, &quot;placeholder&quot;: &quot;Anything else you'd like us to know? (optional)&quot;}">Ask a Specialist</a>
 
         <div class="mt-32">
           <details open>
@@ -235,6 +235,10 @@
       <p class="eyebrow">Collection Enquiry</p>
       <h3 class="mt-8" data-modal-piece-name>Enquire About This Piece</h3>
       <p class="text-muted mt-8" data-modal-piece-meta></p>
+      <p class="modal-piece-note" data-modal-piece-note hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>This enquiry is linked to the piece above &mdash; no need to describe the rug below, we&rsquo;ve got the details.</span>
+      </p>
       <form id="enquiry-form" class="mt-32">
         <input type="hidden" name="piece">
         <div class="grid grid-2" style="gap:20px">
@@ -242,12 +246,12 @@
           <div class="field"><label>Phone</label><input type="tel" required></div>
         </div>
         <div class="field"><label>Email</label><input type="email" required></div>
-        <div class="field"><label>Message</label><textarea placeholder="I'd like to arrange a private viewing of this piece..."></textarea></div>
+        <div class="field"><label>Message</label><textarea placeholder="Anything else you'd like us to know? (optional)" data-modal-message></textarea></div>
         <button type="submit" class="btn btn-block">Send Enquiry</button>
       </form>
     </div>
   </div>
   <div class="toast"></div>
-<script src="../assets/js/main.js?v=8874e308"></script>
+<script src="../assets/js/main.js?v=73e87b5f"></script>
 </body>
 </html>

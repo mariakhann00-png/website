@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=520f2da3">
+<link rel="stylesheet" href="../assets/css/style.css?v=64903f29">
 
 </head>
 <body class="page-gallery">
@@ -93,8 +93,8 @@
           <div class="branch-meta" style="margin-top:0"><span class="lbl">Size</span>408 x 295 cm</div>
           <div class="branch-meta" style="margin-top:0"><span class="lbl">Notes</span>Hand-knotted wool, dense classical pile</div>
         </div>
-        <button class="btn btn-block mt-24" data-open-enquiry data-piece="{&quot;id&quot;: &quot;persian-kashan&quot;, &quot;title&quot;: &quot;Persian Kashan&quot;, &quot;meta&quot;: &quot;Iran, New Collection &middot; 408 x 295 cm&quot;}">Enquire About This Piece</button>
-        <a href="#" class="text-link mt-16" style="display:inline-block" data-open-enquiry data-piece="{&quot;id&quot;: &quot;persian-kashan&quot;, &quot;title&quot;: &quot;Private Viewing \u2014 Persian Kashan&quot;, &quot;meta&quot;: &quot;We'll arrange for you to view this piece in person, at our showroom or in your home.&quot;}">Arrange a Private Viewing</a>
+        <button class="btn btn-block mt-24" data-open-enquiry data-piece="{&quot;id&quot;: &quot;persian-kashan&quot;, &quot;title&quot;: &quot;Persian Kashan&quot;, &quot;meta&quot;: &quot;Iran, New Collection &middot; 408 x 295 cm&quot;, &quot;placeholder&quot;: &quot;Anything else you'd like us to know? (optional)&quot;}">Enquire About This Piece</button>
+        <a href="#" class="text-link mt-16" style="display:inline-block" data-open-enquiry data-piece="{&quot;id&quot;: &quot;persian-kashan&quot;, &quot;title&quot;: &quot;Private Viewing \u2014 Persian Kashan&quot;, &quot;meta&quot;: &quot;We'll arrange for you to view this piece in person, at our showroom or in your home.&quot;, &quot;placeholder&quot;: &quot;Preferred day or time, or your address if you'd like a home viewing...&quot;}">Arrange a Private Viewing</a>
       </div>
     </div>
   </section>
@@ -109,7 +109,7 @@
         </a>
         <a href="../gallery/bur-bur-kilim.html"><div class="card-title">Bur Bur Kilim</div></a>
         <div class="card-meta">Afghanistan &middot; 368 x 269 cm</div>
-        <button class="btn btn-outline btn-sm btn-block mt-16" data-open-enquiry data-piece="{&quot;id&quot;: &quot;bur-bur-kilim&quot;, &quot;title&quot;: &quot;Bur Bur Kilim&quot;, &quot;meta&quot;: &quot;Afghanistan, New Collection &middot; 368 x 269 cm&quot;}">Enquire</button>
+        <button class="btn btn-outline btn-sm btn-block mt-16" data-open-enquiry data-piece="{&quot;id&quot;: &quot;bur-bur-kilim&quot;, &quot;title&quot;: &quot;Bur Bur Kilim&quot;, &quot;meta&quot;: &quot;Afghanistan, New Collection &middot; 368 x 269 cm&quot;, &quot;placeholder&quot;: &quot;Anything else you'd like us to know? (optional)&quot;}">Enquire</button>
       </article>
       </div>
     </div>
@@ -183,6 +183,10 @@
       <p class="eyebrow">Collection Enquiry</p>
       <h3 class="mt-8" data-modal-piece-name>Enquire About This Piece</h3>
       <p class="text-muted mt-8" data-modal-piece-meta></p>
+      <p class="modal-piece-note" data-modal-piece-note hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>This enquiry is linked to the piece above &mdash; no need to describe the rug below, we&rsquo;ve got the details.</span>
+      </p>
       <form id="enquiry-form" class="mt-32">
         <input type="hidden" name="piece">
         <div class="grid grid-2" style="gap:20px">
@@ -190,12 +194,12 @@
           <div class="field"><label>Phone</label><input type="tel" required></div>
         </div>
         <div class="field"><label>Email</label><input type="email" required></div>
-        <div class="field"><label>Message</label><textarea placeholder="I'd like to arrange a private viewing of this piece..."></textarea></div>
+        <div class="field"><label>Message</label><textarea placeholder="Anything else you'd like us to know? (optional)" data-modal-message></textarea></div>
         <button type="submit" class="btn btn-block">Send Enquiry</button>
       </form>
     </div>
   </div>
   <div class="toast"></div>
-<script src="../assets/js/main.js?v=8874e308"></script>
+<script src="../assets/js/main.js?v=73e87b5f"></script>
 </body>
 </html>
