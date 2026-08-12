@@ -134,6 +134,8 @@ section { padding-block: clamp(56px, 9vw, 128px); }
   transition: border-color .3s var(--ease), opacity .3s var(--ease);
 }
 .text-link:hover { border-color: var(--black); }
+.text-link .arrow { display: inline-block; margin-left: 2px; transition: transform .3s var(--ease); }
+.text-link:hover .arrow { transform: translateX(4px); }
 
 /* ---------- Header / Nav (floats above the hero) ---------- */
 .site-header {
@@ -630,6 +632,32 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .branch-card { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--line); }
 .branch-card h4 { margin-bottom: 4px; }
 .branch-card .location-row { padding: 0; border: none; }
+
+/* ---------- Contact page: direct options ---------- */
+.contact-options { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 32px); }
+.contact-option {
+  display: block; border: 1px solid var(--line);
+  padding: clamp(30px, 4vw, 44px) clamp(26px, 3.5vw, 38px);
+  transition: border-color .35s var(--ease);
+}
+.contact-option:hover { border-color: var(--line-strong); }
+.contact-option-icon { width: 27px; height: 27px; stroke: var(--muted); fill: none; stroke-width: 1.2; transition: stroke .35s var(--ease); }
+.contact-option:hover .contact-option-icon { stroke: var(--black); }
+.contact-option-label { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--black); margin-top: 20px; }
+.contact-option-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px; max-width: 30ch; }
+.contact-option-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+  font-size: 0.76rem; letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--black); border-bottom: 1px solid var(--line-strong); padding-bottom: 4px;
+  transition: border-color .3s var(--ease);
+}
+.contact-option-link .arrow { display: inline-block; transition: transform .3s var(--ease); }
+.contact-option:hover .contact-option-link { border-color: var(--black); }
+.contact-option:hover .contact-option-link .arrow { transform: translateX(4px); }
+
+@media (max-width: 760px) {
+  .contact-options { grid-template-columns: 1fr; }
+}
 
 /* ---------- Contact page: form + location list ---------- */
 .contact-grid { grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 80px); }
