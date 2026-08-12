@@ -1053,16 +1053,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .journey-mobile-grid { display: none; }
 .journey-mobile-video { display: none; }
 
-/* ---------- A Growing Legacy: full-width interlude ---------- */
-.journey-fullwidth { margin-top: clamp(56px, 8vw, 104px); }
-.journey-fullwidth-media {
-  width: 100vw; margin-left: calc(50% - 50vw);
-  aspect-ratio: 16/10; overflow: hidden;
-}
-.journey-fullwidth-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.journey-fullwidth-caption { margin-top: 28px; max-width: 42ch; }
-.journey-fullwidth-caption .journey-text { opacity: 1; }
-
 @media (max-width: 860px) {
   .journey-grid { grid-template-columns: 1fr; }
   .journey-media { display: none; }
@@ -1070,7 +1060,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .journey-mobile-item { aspect-ratio: 4/5; overflow: hidden; }
   .journey-mobile-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .journey-track { padding-bottom: 0; }
-  .journey-fullwidth-media { aspect-ratio: 4/5; }
   .journey-mobile-video {
     display: block; position: relative; margin-top: 20px;
     aspect-ratio: 4/5; overflow: hidden;
