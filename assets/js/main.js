@@ -41,15 +41,16 @@
     if (mobileNavClose && mobileNav) {
       mobileNavClose.addEventListener("click", function () { mobileNav.classList.remove("is-open"); });
     }
-    var caret = qs(".mobile-nav-caret");
-    var subitems = qs(".mobile-nav-subitems");
-    if (caret && subitems) {
+    qsa(".mobile-nav-caret").forEach(function (caret) {
+      var block = caret.closest(".mobile-nav-block");
+      var subitems = block && qs(".mobile-nav-subitems", block);
+      if (!subitems) return;
       caret.addEventListener("click", function () {
         var open = subitems.classList.toggle("is-open");
         caret.classList.toggle("is-open", open);
         caret.setAttribute("aria-expanded", open ? "true" : "false");
       });
-    }
+    });
 
     /* ---------- scroll-reveal grids (e.g. The Difference) ---------- */
     if ("IntersectionObserver" in window) {
