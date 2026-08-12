@@ -287,21 +287,24 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
   transition: left 1.3s var(--ease-slow);
   z-index: 5; pointer-events: none;
 }
-@media (hover: hover) {
-  .cover-hero:has(.cover-shop:hover)::after { left: 58%; }
-  .cover-hero:has(.cover-gallery:hover)::after { left: 42%; }
-  .cover-hero:has(.cover-shop:hover) .cover-shop { flex-basis: 58%; }
-  .cover-hero:has(.cover-shop:hover) .cover-gallery { flex-basis: 42%; }
-  .cover-hero:has(.cover-gallery:hover) .cover-gallery { flex-basis: 58%; }
-  .cover-hero:has(.cover-gallery:hover) .cover-shop { flex-basis: 42%; }
-  .cover-hero:has(.cover-shop:hover) .cover-shop,
-  .cover-hero:has(.cover-gallery:hover) .cover-gallery { filter: brightness(1.06); }
-  .cover-hero:has(.cover-shop:hover) .cover-gallery,
-  .cover-hero:has(.cover-gallery:hover) .cover-shop { filter: brightness(.72); }
-  .cover-panel:hover .cover-img, .cover-panel:hover .cover-media .art { transform: scale(1.025); }
-  .cover-eyebrow:hover { color: var(--white); font-weight: 700; }
-  .cover-panel:hover .cover-heading { transform: translateY(-8px); }
-}
+/* Driven by JS (mouseenter/mouseleave toggling .is-hovering) rather than
+   the :hover pseudo-class or the (hover: none/hover) media feature — both
+   have proven unreliable at detecting real pointer devices (e.g. a
+   trackpad on an iPad) on some machines in this project; see the At Home
+   grid below for the same pattern. */
+.cover-hero:has(.cover-shop.is-hovering)::after { left: 58%; }
+.cover-hero:has(.cover-gallery.is-hovering)::after { left: 42%; }
+.cover-hero:has(.cover-shop.is-hovering) .cover-shop { flex-basis: 58%; }
+.cover-hero:has(.cover-shop.is-hovering) .cover-gallery { flex-basis: 42%; }
+.cover-hero:has(.cover-gallery.is-hovering) .cover-gallery { flex-basis: 58%; }
+.cover-hero:has(.cover-gallery.is-hovering) .cover-shop { flex-basis: 42%; }
+.cover-hero:has(.cover-shop.is-hovering) .cover-shop,
+.cover-hero:has(.cover-gallery.is-hovering) .cover-gallery { filter: brightness(1.06); }
+.cover-hero:has(.cover-shop.is-hovering) .cover-gallery,
+.cover-hero:has(.cover-gallery.is-hovering) .cover-shop { filter: brightness(.72); }
+.cover-panel.is-hovering .cover-img, .cover-panel.is-hovering .cover-media .art { transform: scale(1.025); }
+.cover-eyebrow:hover, .cover-panel.is-hovering .cover-eyebrow { color: var(--white); font-weight: 700; }
+.cover-panel.is-hovering .cover-heading { transform: translateY(-8px); }
 
 .cover-panel {
   position: relative;
@@ -783,8 +786,13 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 
 /* ---------- Home Consultation (editorial CTA, between At Home and Visit) ---------- */
-.home-consult { padding-block: clamp(72px, 11vw, 152px); }
-.home-consult-heading { font-size: clamp(2.2rem, 4vw, 3.4rem); text-wrap: balance; }
+.home-consult { padding-block: clamp(100px, 15vw, 220px); }
+.home-consult-heading { font-size: clamp(2.2rem, 3.4vw, 3rem); text-wrap: balance; }
+.home-consult-sub { max-width: 60ch; }
+@media (min-width: 900px) {
+  .home-consult-heading { white-space: nowrap; }
+  .home-consult-sub { white-space: nowrap; max-width: none; }
+}
 
 /* ---------- The Art of the Persian Rug ---------- */
 .craft-part { min-width: 0; position: relative; transition: z-index 0s; }

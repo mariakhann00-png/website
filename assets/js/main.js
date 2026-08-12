@@ -145,6 +145,12 @@
       video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
     });
 
+    /* ---------- Cover hero: split/zoom reaction on hover ---------- */
+    qsa(".cover-panel").forEach(function (el) {
+      el.addEventListener("mouseenter", function () { el.classList.add("is-hovering"); });
+      el.addEventListener("mouseleave", function () { el.classList.remove("is-hovering"); });
+    });
+
     /* ---------- At Home: click/tap opens a full lightbox ---------- */
     var lightbox = qs("[data-at-home-lightbox]");
     if (lightbox) {
