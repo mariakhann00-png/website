@@ -1071,11 +1071,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 
 /* ---------- Final: quiet close ---------- */
-.thread-final-grid { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.thread-final-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
 .thread-final-media { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 24px); }
 .thread-final-photo { aspect-ratio: 4/5; overflow: hidden; }
 .thread-final-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.thread-final-line { font-size: clamp(1.3rem, 2.2vw, 1.7rem); text-wrap: balance; }
+.thread-final-line { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.2; white-space: nowrap; }
 .thread-final-links { margin-top: 26px; display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; }
 
 @media (max-width: 860px) {
