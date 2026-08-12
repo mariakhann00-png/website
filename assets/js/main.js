@@ -122,22 +122,27 @@
       });
     }
 
-    /* ---------- The Art of the Persian Rug: click-to-play video ---------- */
+    /* ---------- The Art of the Persian Rug: autoplaying video, click to pause/resume ---------- */
     qsa("[data-craft-video]").forEach(function (wrap) {
       var video = qs("video", wrap);
       if (!video) return;
+      var tryAutoplay = function () {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      };
+      if (video.readyState >= 2) tryAutoplay();
+      else video.addEventListener("loadeddata", tryAutoplay, { once: true });
       wrap.addEventListener("click", function () {
         if (video.paused) {
           video.muted = false;
           video.play();
-          wrap.classList.add("is-playing");
         } else {
           video.pause();
-          wrap.classList.remove("is-playing");
         }
       });
-      video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
+      video.addEventListener("play", function () { wrap.classList.add("is-playing"); });
       video.addEventListener("pause", function () { wrap.classList.remove("is-playing"); });
+      video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
     });
 
     /* ---------- At Home: click/tap opens a full lightbox ---------- */

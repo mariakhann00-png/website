@@ -484,10 +484,6 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 @media (hover: none) {
   .edit-card .product-photo img { transition: none; }
   .edit-card .product-photo::after { display: none; }
-  .edit-cta {
-    opacity: 1; transform: translate(-50%, 0);
-    background: rgba(20,18,15,.72); padding: 8px 16px; border-bottom: none;
-  }
 }
 
 /* ---------- Editorial / story blocks ---------- */
@@ -786,6 +782,10 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .lightbox-media img { max-height: 58vh; }
 }
 
+/* ---------- Home Consultation (editorial CTA, between At Home and Visit) ---------- */
+.home-consult { padding-block: clamp(72px, 11vw, 152px); }
+.home-consult-heading { font-size: clamp(2.2rem, 4vw, 3.4rem); text-wrap: balance; }
+
 /* ---------- The Art of the Persian Rug ---------- */
 .craft-part { min-width: 0; position: relative; transition: z-index 0s; }
 .craft-media { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 24px; position: relative; transition: transform .6s var(--ease); }
@@ -805,14 +805,14 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   opacity: 0; transition: opacity .4s var(--ease);
   pointer-events: none;
 }
-.craft-play svg { width: 18px; height: 18px; fill: #fff; margin-left: 3px; }
+.craft-play svg { width: 18px; height: 18px; fill: #fff; }
+.craft-play .icon-play { margin-left: 3px; }
+.craft-play .icon-pause { display: none; }
+.craft-media.is-playing .craft-play .icon-play { display: none; }
+.craft-media.is-playing .craft-play .icon-pause { display: block; }
 @media (hover: hover) {
   .craft-media:hover .craft-play { opacity: 1; }
 }
-@media (hover: none) {
-  .craft-play { opacity: .55; }
-}
-.craft-media.is-playing .craft-play { opacity: 0; }
 .craft-num {
   font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
