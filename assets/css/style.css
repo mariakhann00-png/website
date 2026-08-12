@@ -1044,6 +1044,8 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .journey-img.is-active { opacity: 1; transform: scale(1); pointer-events: auto; }
 .journey-img img, .journey-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.journey-img-compact { display: flex; align-items: center; justify-content: center; }
+.journey-img-compact img { width: 58%; height: auto; object-fit: contain; }
 .journey-img .art { width: 100%; height: 100%; }
 .journey-img.is-playing .craft-play .icon-play { display: none; }
 .journey-img.is-playing .craft-play .icon-pause { display: block; }
@@ -1070,26 +1072,17 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .thread-hero { height: 86vh; }
 }
 
-/* ---------- Final: cinematic close ---------- */
-.thread-final { position: relative; height: 92vh; min-height: 560px; max-height: 900px; overflow: hidden; margin-top: clamp(56px, 8vw, 104px); }
-.thread-final-media { position: absolute; inset: 0; }
+/* ---------- Final: quiet close ---------- */
+.thread-final-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.thread-final-media { max-width: 340px; aspect-ratio: 4/5; overflow: hidden; margin-left: auto; }
 .thread-final-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.thread-final::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(15,14,12,.7) 0%, rgba(15,14,12,.25) 40%, rgba(15,14,12,0) 65%);
+.thread-final-line { font-size: clamp(1.3rem, 2.2vw, 1.7rem); text-wrap: balance; }
+.thread-final-links { margin-top: 26px; display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .thread-final-grid { grid-template-columns: 1fr; }
+  .thread-final-media { max-width: 100%; margin-left: 0; margin-top: 32px; }
 }
-.thread-final-content {
-  position: relative; z-index: 2; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-  text-align: center; padding: 0 var(--gutter) clamp(48px, 8vw, 88px);
-}
-.thread-final-line {
-  color: var(--white); font-size: clamp(1.1rem, 2vw, 1.35rem);
-  text-shadow: 0 2px 16px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.5);
-}
-.thread-final-links { margin-top: 26px; display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; justify-content: center; }
-.thread-final-links .text-link { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.4); }
-.thread-final-links .text-link:hover { color: var(--white); border-color: rgba(255,255,255,.9); }
 
 @media (prefers-reduced-motion: reduce) {
   .thread-hero-media img, .thread-hero-media .art { animation: none; opacity: 1; transform: none; }
