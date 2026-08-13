@@ -323,6 +323,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
   content: "";
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.08) 28%, rgba(0,0,0,.08) 56%, rgba(0,0,0,.68) 100%);
+  pointer-events: none;
 }
 .cover-media { position: absolute; inset: 0; overflow: hidden; }
 .cover-img, .cover-media .art {
