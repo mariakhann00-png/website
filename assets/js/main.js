@@ -152,6 +152,22 @@
       el.addEventListener("mouseleave", function () { el.classList.remove("is-hovering"); });
     });
 
+    /* ---------- Why Choose Us: motif zoom on hover (desktop) or tap (touch/iPad) ---------- */
+    var diffCols = qsa(".diff-col");
+    var supportsHover = window.matchMedia("(hover: hover)").matches;
+    diffCols.forEach(function (el) {
+      if (supportsHover) {
+        el.addEventListener("mouseenter", function () { el.classList.add("is-active"); });
+        el.addEventListener("mouseleave", function () { el.classList.remove("is-active"); });
+      } else {
+        el.addEventListener("click", function () {
+          var wasActive = el.classList.contains("is-active");
+          diffCols.forEach(function (other) { other.classList.remove("is-active"); });
+          if (!wasActive) el.classList.add("is-active");
+        });
+      }
+    });
+
     /* ---------- At Home: click/tap opens a full lightbox ---------- */
     var lightbox = qs("[data-at-home-lightbox]");
     if (lightbox) {
