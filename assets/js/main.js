@@ -284,10 +284,11 @@
     /* ---------- shop / gallery filters ---------- */
     var grid = qs("[data-product-grid]");
     if (grid) {
-      var state = { type: "All", size: "All", colour: "All", sort: "featured" };
+      var state = { type: "All", size: "All", colour: "All", rugType: "All", sort: "featured" };
       var chips = qsa("[data-filters] .chip");
       var sizeSelect = qs("[data-filter-size]");
       var colourSelect = qs("[data-filter-colour]");
+      var rugTypeSelect = qs("[data-filter-rug-type]");
       var sortSelect = qs("[data-sort-select]");
       var cards = qsa("[data-product-grid] > div");
 
@@ -313,7 +314,8 @@
           var matches =
             (state.type === "All" || card.getAttribute("data-tag") === state.type) &&
             (state.size === "All" || card.getAttribute("data-size") === state.size) &&
-            (state.colour === "All" || card.getAttribute("data-colour") === state.colour);
+            (state.colour === "All" || card.getAttribute("data-colour") === state.colour) &&
+            (state.rugType === "All" || card.getAttribute("data-rug-type") === state.rugType);
           card.style.display = matches ? "" : "none";
         });
         var sorted = cards.slice().sort(function (a, b) {
@@ -337,6 +339,7 @@
       });
       if (sizeSelect) sizeSelect.addEventListener("change", function () { state.size = sizeSelect.value; apply(); });
       if (colourSelect) colourSelect.addEventListener("change", function () { state.colour = colourSelect.value; apply(); });
+      if (rugTypeSelect) rugTypeSelect.addEventListener("change", function () { state.rugType = rugTypeSelect.value; apply(); });
       if (sortSelect) sortSelect.addEventListener("change", function () { state.sort = sortSelect.value; apply(); });
 
       var presetType = new URLSearchParams(window.location.search).get("type");
