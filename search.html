@@ -48,7 +48,7 @@
     </div>
     <div class="search-overlay">
       <form action="search.html" method="get">
-        <input type="search" name="q" placeholder="Search rugs by name, origin, colour&hellip;" autocomplete="off">
+        <input type="search" name="q" placeholder="Search by name, type, origin, colour&hellip;" autocomplete="off">
         <button type="submit" class="btn">Search</button>
       </form>
     </div>
@@ -86,7 +86,7 @@
       <p class="eyebrow">Search Results</p>
       <h1 class="mt-16" data-search-heading>Search the Collection</h1>
       <div class="grid grid-4 mt-48" data-search-results></div>
-      <p class="text-muted mt-32" data-search-empty style="display:none">No pieces matched your search. Try a different name, origin, or colour &mdash; or browse the <a href="shop.html" class="text-link">Shop</a> and <a href="gallery.html" class="text-link">Collection</a> directly.</p>
+      <p class="text-muted mt-32" data-search-empty style="display:none">No pieces matched your search. Try a different name, type, origin, or colour &mdash; or browse the <a href="shop.html" class="text-link">Shop</a> and <a href="gallery.html" class="text-link">Collection</a> directly.</p>
     </div>
   </section>
   <script>
@@ -98,9 +98,11 @@
       var results = document.querySelector('[data-search-results]');
       var empty = document.querySelector('[data-search-empty]');
       if (heading) heading.textContent = q ? 'Results for “' + q + '”' : 'Search the Collection';
+      var searchStopwords = ['rug', 'rugs', 'carpet', 'carpets'];
+      var qWords = q.split(/\s+/).filter(Boolean).filter(function (w) { return searchStopwords.indexOf(w) === -1; });
       var matches = !q ? [] : CATALOGUE.filter(function (item) {
         var hay = [item.title, item.origin, item.tag, item.colour, item.material || '', item.serial || ''].join(' ').toLowerCase();
-        return hay.indexOf(q) !== -1;
+        return qWords.every(function (w) { return hay.indexOf(w) !== -1; });
       });
       if (q && matches.length === 0) {
         empty.style.display = 'block';
