@@ -85,10 +85,17 @@
     /* ---------- Behind the Threads: scroll-linked journey timeline ---------- */
     var journeySteps = qsa(".journey-step");
     var journeyImgs = qsa(".journey-img");
+    var journeyMedia = qs(".journey-media");
     if (journeySteps.length && journeyImgs.length) {
       var setJourneyActive = function (i) {
         journeySteps.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyStep === i); });
-        journeyImgs.forEach(function (el) { el.classList.toggle("is-active", el.dataset.journeyImg === i); });
+        var activeImg = null;
+        journeyImgs.forEach(function (el) {
+          var isActive = el.dataset.journeyImg === i;
+          el.classList.toggle("is-active", isActive);
+          if (isActive) activeImg = el;
+        });
+        if (journeyMedia) journeyMedia.classList.toggle("is-wide", !!(activeImg && activeImg.dataset.aspect === "wide"));
       };
       var journeyTicking = false;
       var updateJourneyActive = function () {

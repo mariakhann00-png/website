@@ -346,6 +346,7 @@ body:not(.page-home) .site-header .logo-img-dark { display: block; }
   transform: translateY(0);
   transition: transform .8s var(--ease-slow);
 }
+.cover-heading a { color: inherit; text-decoration: none; }
 .cover-sub {
   font-family: var(--font-sans);
   font-weight: 300;
@@ -548,6 +549,9 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .footer ul li { margin-bottom: 11px; }
 .footer a { font-size: 0.86rem; color: rgba(255,255,255,.72); transition: color .25s; }
 .footer a:hover { color: var(--white); }
+.footer a.social-link { display: inline-flex; align-items: center; gap: 8px; }
+.footer a.social-link svg { color: rgba(255,255,255,.85); flex-shrink: 0; }
+.footer a.social-link:hover svg { color: var(--white); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.14);
   padding: 22px var(--gutter);
@@ -1072,6 +1076,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   width: min(420px, 100%);
   height: min(520px, calc(100vh - var(--nav-h) - 80px));
   overflow: hidden;
+  transition: width 1s var(--ease-slow), height 1s var(--ease-slow);
+}
+.journey-media.is-wide {
+  width: min(640px, 100%);
+  height: min(420px, calc(100vh - var(--nav-h) - 80px));
 }
 .journey-img {
   position: absolute; inset: 0; opacity: 0; transform: scale(1.05);
@@ -1113,6 +1122,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .thread-final-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .thread-final-line { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.2; white-space: nowrap; }
 .thread-final-links { margin-top: 26px; display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; }
+.thread-final-social { margin-top: 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.thread-final-social-label { font-family: var(--font-display); font-style: italic; color: var(--muted); font-size: 0.92rem; }
+.social-icons { display: flex; gap: 14px; }
+.social-icons a { color: var(--black); display: inline-flex; transition: opacity .25s var(--ease); }
+.social-icons a:hover { opacity: .55; }
 
 @media (max-width: 860px) {
   .thread-final-grid { grid-template-columns: 1fr; }
