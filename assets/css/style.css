@@ -449,6 +449,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 .product-photo-lg { aspect-ratio: 3/4; cursor: zoom-in; }
 .product-photo-lg img { object-fit: contain; transition: transform .35s var(--ease); }
 .product-photo-lg img.is-zoomed { transform: scale(1.35); }
+.photo-note { font-size: 0.74rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
 .price-was { text-decoration: line-through; color: var(--muted); margin-right: 10px; }
 .price-now { color: var(--black); font-weight: 500; }
 .card-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 4px; }
@@ -564,6 +565,37 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .newsletter-form input::placeholder { color: rgba(255,255,255,.5); }
 .newsletter-form button { background: none; border: none; color: var(--white); font-size: 0.7rem; letter-spacing: var(--tracking-wide); text-transform: uppercase; padding: 10px 4px; }
+
+/* ---------- Floating WhatsApp button ---------- */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: max(20px, calc(env(safe-area-inset-bottom, 0px) + 14px));
+  z-index: 230;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  width: 52px;
+  border-radius: 26px;
+  background: var(--black);
+  color: var(--white);
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0,0,0,.28);
+  transition: width .45s var(--ease-slow), background .3s var(--ease);
+}
+.whatsapp-float-icon { flex: 0 0 52px; display: flex; align-items: center; justify-content: center; }
+.whatsapp-float-icon svg { width: 22px; height: 22px; }
+.whatsapp-float-label {
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  opacity: 0; transition: opacity .3s var(--ease); padding-right: 22px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .whatsapp-float:hover { width: 224px; background: #3a3733; }
+  .whatsapp-float:hover .whatsapp-float-label { opacity: 1; }
+}
 
 /* ---------- Cart Drawer ---------- */
 .overlay-scrim {
