@@ -534,6 +534,11 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   transition: border-color .25s var(--ease);
 }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--black); }
+.branch-meta { margin-top: 22px; }
+.branch-meta .lbl {
+  display: block; font-size: 0.72rem; letter-spacing: var(--tracking-wide);
+  text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+}
 .field textarea { resize: vertical; min-height: 100px; }
 
 /* ---------- Footer ---------- */
