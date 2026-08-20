@@ -966,15 +966,17 @@ body:not(.page-home) { padding-top: var(--nav-h); }
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: calc(var(--gutter) + 12px);
     -webkit-overflow-scrolling: touch;
     gap: 16px;
     margin-inline: calc(-1 * var(--gutter));
-    padding-inline: var(--gutter);
+    padding-right: var(--gutter);
     padding-bottom: 6px;
     scrollbar-width: none;
   }
   .edit-grid::-webkit-scrollbar { display: none; }
   .edit-grid .edit-card { flex: 0 0 76%; scroll-snap-align: start; }
+  .edit-grid .edit-card:first-child { margin-left: calc(var(--gutter) + 12px); }
   [data-product-grid] { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   [data-product-grid] .card-title { font-size: 1.05rem; }
   [data-product-grid] .btn-sm { padding: 10px 14px; font-size: 0.62rem; }
