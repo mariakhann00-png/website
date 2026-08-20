@@ -961,6 +961,20 @@ body:not(.page-home) { padding-top: var(--nav-h); }
   .nav-toggle span { width: 22px; height: 1px; background: var(--nav-fg); transition: background .5s var(--ease); }
   .logo-img { height: 51px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .edit-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .edit-grid::-webkit-scrollbar { display: none; }
+  .edit-grid .edit-card { flex: 0 0 76%; scroll-snap-align: start; }
   [data-product-grid] { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   [data-product-grid] .card-title { font-size: 1.05rem; }
   [data-product-grid] .btn-sm { padding: 10px 14px; font-size: 0.62rem; }
