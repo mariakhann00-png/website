@@ -719,7 +719,7 @@ body:not(.page-home) { padding-top: var(--nav-h); }
 }
 .location-map-badge:hover { color: var(--black); }
 
-.breadcrumb { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-block: 22px; }
+.breadcrumb { display: none; }
 .breadcrumb a:hover { color: var(--black); }
 
 /* ---------- Toast ---------- */
