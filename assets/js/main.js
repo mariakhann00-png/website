@@ -159,9 +159,14 @@
       el.addEventListener("mouseleave", function () { el.classList.remove("is-hovering"); });
     });
 
-    /* ---------- Why Choose Us: motif zoom on hover (desktop) or tap (touch/iPad) ---------- */
+    /* ---------- Why Choose Us: motif zoom on hover (desktop) or tap (touch/iPad) ----------
+       iPadOS reports (hover: hover) as true even on touch-only use (it just means a
+       trackpad/mouse COULD be attached), so that media query alone wrongly sends iPads
+       down the mouseenter/mouseleave path, where a finger tap never fires anything.
+       Checking touch capability directly is the reliable signal here. */
     var diffCols = qsa(".diff-col");
-    var supportsHover = window.matchMedia("(hover: hover)").matches;
+    var isTouchCapable = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    var supportsHover = window.matchMedia("(hover: hover)").matches && !isTouchCapable;
     diffCols.forEach(function (el) {
       if (supportsHover) {
         el.addEventListener("mouseenter", function () { el.classList.add("is-active"); });
